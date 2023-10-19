@@ -1,0 +1,79 @@
+.header{
+    background:linear-gradient(#0000001b, #0000002e), url('../images/gmeet.webp') fixed center no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    color: #fff;
+}
+
+.header img{
+    position: absolute;
+    bottom: -15px;
+}
+
+.header .container{
+    max-width: 60%;
+    margin: auto;
+    /* background-color: rgb(69, 69, 69); */
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.header .container h1{
+    font-size: 3rem;
+    font-weight: 800;
+    text-align: center;
+    z-index: 2;
+    margin-bottom: 2rem;
+}
+
+.header .container h3{
+    z-index: 2;
+}
+
+.header .container .play-box{
+    background-color: #fff;
+    height: 5rem;
+    width: 5rem;
+    border-radius: 50%;
+    margin-top: 3em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.header .container .play-btn{
+    font-size: 3em;
+    color: #ff5a6e;
+    border-radius: 50%;
+}
+
+.header .container .play-box:before{
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 49.95%;
+    top: 61.4%;
+    transform: translateX(-50%) translateY(-50%);
+    display: block;
+    width: 80px;
+    height: 80px;
+    background: #ffffff repeat scroll 0 0;
+    border-radius: 50%;
+    animation: pulse-border 1500ms ease-out infinite;
+}    
+
+@keyframes pulse-border {
+    0%{
+        transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1);
+        opacity: 1;
+    }    
+    100%{
+        transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1.5);
+        opacity: 0;
+    }
+}
