@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Link } from 'react-router-dom'
 import "./styles/login.css";
+import { Avatar, Box, Typography } from "@mui/material";
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 
 function Login({ registerOpen, setLoginOpen, setRegisterOpen }) {
   const [formData, setFormData] = useState({
@@ -27,8 +29,8 @@ function Login({ registerOpen, setLoginOpen, setRegisterOpen }) {
     }));
   }
 
-  const handleRegisterLink = () =>{
-    if(!registerOpen){
+  const handleRegisterLink = () => {
+    if (!registerOpen) {
       setRegisterOpen(true);
       setLoginOpen(false);
     }
@@ -39,7 +41,21 @@ function Login({ registerOpen, setLoginOpen, setRegisterOpen }) {
     <div className="align">
       <div className="wrapper">
         <div className="form-box login">
-          <h2>Login</h2>
+          {/* <h2>Login</h2> */}
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+            }}
+          >
+            <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+              <LockOutlinedIcon />
+            </Avatar>
+            <Typography component="h1" variant="h5">
+              Login
+            </Typography>
+          </Box>
           <form onSubmit={handleSubmit}>
             <div className="input-box">
               <span className="icon">

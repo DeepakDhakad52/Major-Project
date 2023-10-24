@@ -1,8 +1,11 @@
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import { Avatar, Box, Typography } from '@mui/material';
 import React from 'react'
 
 const Register = ({ loginOpen, setLoginOpen, setRegisterOpen }) => {
     const [formData, setFormData] = React.useState({
-        username: '',
+        firstname: '',
+        lastname: '',
         email: '',
         password: '',
         agreeToTerms: false,
@@ -25,37 +28,63 @@ const Register = ({ loginOpen, setLoginOpen, setRegisterOpen }) => {
         console.log(formData);
 
         setFormData({
-            username: '',
+            firstname: '',
+            lastname: '',
             email: '',
             password: '',
             agreeToTerms: false,
         });
     };
 
-    
-  const handleLoginClick = () => {
-    if(!loginOpen){
-      setLoginOpen(true);
-      setRegisterOpen(false);
-    }
-  }
 
-  return (
-    <div className="align">
+    const handleLoginClick = () => {
+        if (!loginOpen) {
+            setLoginOpen(true);
+            setRegisterOpen(false);
+        }
+    }
+
+    return (
+        <div className="align">
             <div className="wrapper">
                 <div className="form-box register">
-                    <h2>Registration</h2>
+                    {/* <h2>Registration</h2> */}
+                    <Box
+                        sx={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignItems: 'center',
+                        }}
+                    >
+                        <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+                            <LockOutlinedIcon />
+                        </Avatar>
+                        <Typography component="h1" variant="h5">
+                            Sign Up
+                        </Typography>
+                    </Box>
                     <form onSubmit={handleSubmit}>
                         <div className="input-box">
                             <span className="icon"><ion-icon name="person"></ion-icon></span>
                             <input
                                 type="text"
-                                name="username"
-                                value={formData.username}
+                                name="firstname"
+                                value={formData.firstname}
                                 onChange={handleInputChange}
                                 required
                             />
-                            <label htmlFor="Username">Username</label>
+                            <label htmlFor="firstname">First Name</label>
+                        </div>
+                        <div className="input-box">
+                            <span className="icon"><ion-icon name="person"></ion-icon></span>
+                            <input
+                                type="text"
+                                name="lastname"
+                                value={formData.lastname}
+                                onChange={handleInputChange}
+                                required
+                            />
+                            <label htmlFor="firstname">Last Name</label>
                         </div>
                         <div className="input-box">
                             <span className="icon"><ion-icon name="mail"></ion-icon></span>
@@ -99,7 +128,7 @@ const Register = ({ loginOpen, setLoginOpen, setRegisterOpen }) => {
                 </div>
             </div>
         </div>
-  )
+    )
 }
 
 export default Register

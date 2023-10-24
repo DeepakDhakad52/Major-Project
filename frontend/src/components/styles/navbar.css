@@ -1,0 +1,40 @@
+.menuIcon{
+   display: none;
+   font-size: 1.2rem;
+   padding: .2rem;
+   cursor: pointer;
+   color: black !important;
+}
+
+.mobileMenu{
+   width: 100%;
+   text-align: center;
+}
+
+@media screen and (max-width: 1071px) {
+   .nav-item{
+    font-size: .7rem;
+    margin: 0 1rem;
+    padding: 6px 0;
+   }
+   .nav-item:hover{
+    background-color: none;
+   }
+}
+
+@media screen and (max-width: 912px) {
+   #appBar{
+      background-color: #fff !important;
+   }
+   .nav-items{
+    display: none;
+   }
+   .menuIcon{
+      display: block;
+   }
+   .logo{
+      display: none !important;
+   }
+}
+
+/* 'nav-item tracking-wider text-sm font-medium cursor-pointer mx-2 px-4 py-1.5 rounded-full text-gray-950'; */

@@ -1,0 +1,34 @@
+section.education *{
+    z-index: 1;
+}
+
+section.education{
+    background-image: url('../images/overlay.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+    min-height: 100vh;
+}
+
+
+
+
+@media screen and (max-width:912px){
+    .container{
+        flex-direction: column;
+        padding-top: 30%;
+        margin-left: 5%;
+    }
+    .heroImage{
+        width: 100%;
+    }
+    .heroImage img{
+        width: 100%;
+    }
+    .content{
+        width: 100%;
+    }
+    .content h2{
+        font-size: 3em;
+    }
+}
