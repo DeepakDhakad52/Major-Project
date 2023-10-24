@@ -2,7 +2,7 @@ import './App.css';
 import Navbar from './components/Navbar';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import Blog from './components/Blog';
-import Header from './components/Header';
+import Home from './components/Home';
 import EducationAndTraining from './components/EducationAndTraining';
 import FundRaiser from './components/FundRaiser';
 import About from './components/About';
@@ -14,7 +14,7 @@ function App() {
     <Router>
       <Navbar />
       <Routes>
-        <Route path='/' element={<Header />} />
+        <Route path='/' element={<Home />} />
         <Route path='/education' element={<EducationAndTraining />} />
         <Route path='/fund' element={<FundRaiser />} />
         <Route path='/blog' element={<Blog />} />

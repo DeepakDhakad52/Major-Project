@@ -1,40 +1,42 @@
-import { AppBar, Button, Container, Dialog, Toolbar } from '@mui/material'
+import { AppBar, Box, Button, Container, Dialog, Divider, List, ListItem, ListItemButton, SwipeableDrawer } from '@mui/material'
 import React from 'react'
 import FitbitRoundedIcon from '@mui/icons-material/FitbitRounded';
 import Login from './Login';
-import Register from './Register'
+import './styles/navbar.css'
+import SignUp from './SignUp'
 import { Link } from 'react-router-dom';
+
+
 
 function Navbar() {
     const [loginOpen, setLoginOpen] = React.useState(false);
     const [registerOpen, setRegisterOpen] = React.useState(false);
     const [navbarBackground, setNavbarBackground] = React.useState("transparent");
-    // const [navbarColor, setNavbarColor] = React.useState("white");
+    const [state, setState] = React.useState(false);
+    const list_classes = 'nav-item tracking-wider text-sm font-medium cursor-pointer mx-2 px-4 py-1.5 rounded-full text-gray-950';
 
-  React.useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 1) {
-        setNavbarBackground("white");
-        // setNavbarColor("black");
-      } else {
-        setNavbarBackground("transparent");
-        // setNavbarColor("white");
-      }
-    };
+    React.useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 1) {
+                setNavbarBackground("#ffffffcb");
+            } else {
+                setNavbarBackground("transparent");
+            }
+        };
 
-    window.addEventListener("scroll", handleScroll);
+        window.addEventListener("scroll", handleScroll);
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
 
 
     const handleClickLoginOpen = () => {
         setLoginOpen(true);
     };
 
-    const handleClickRegisterOpen = () =>{
+    const handleClickRegisterOpen = () => {
         setRegisterOpen(true);
     }
 
@@ -43,30 +45,120 @@ function Navbar() {
         setRegisterOpen(false);
     };
 
+    const toggleDrawer = (open) => (event) => {
+        // if (event && event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) return; 
+        setState(open);
+    };
 
-    const list_classes = 'nav-item tracking-wider text-sm font-medium cursor-pointer mx-2 px-4 py-1.5 rounded-full text-white';
+    const NavList = () => {
+        return (
+            <ul className='nav-items flex'>
+                <Link to='/'><li className={list_classes} >Home</li></Link>
+                <Link to='/education'><li className={list_classes} >Education & Training</li></Link>
+                <Link to='/fund'><li className={list_classes} >Fund Raiser</li></Link>
+                <Link to='/blog'><li className={list_classes} >Blog</li></Link>
+                <Link to='/about'><li className={list_classes}>About</li></Link>
+                <Link to='/team'><li className={list_classes} >Our Team</li></Link>
+                <Link to='/contact'><li className={list_classes}>Contact Us</li></Link>
+            </ul>
+        )
+    }
+
+    const list = () => (
+        <Box
+            sx={{ width: 'top' }}
+            role="presentation"
+            onClick={toggleDrawer(false)}
+            onKeyDown={toggleDrawer(false)}
+        >
+            <List>
+                <ListItem disablePadding>
+                    <ListItemButton>
+                        <Link to='/' className='mobileMenu'>
+                            Home
+                        </Link>
+                    </ListItemButton>
+                </ListItem>
+                <Divider />
+                <ListItem disablePadding>
+                    <ListItemButton>
+                        <Link to='/blog' className='mobileMenu'>
+                            Blog
+                        </Link>
+                    </ListItemButton>
+                </ListItem>
+                <Divider />
+                <ListItem disablePadding>
+                    <ListItemButton>
+                        <Link to='/about' className='mobileMenu'>
+                            About
+                        </Link>
+                    </ListItemButton>
+                </ListItem>
+                <Divider />
+                <ListItem disablePadding>
+                    <ListItemButton>
+                        <Link to='/team' className='mobileMenu'>
+                            Our Team
+                        </Link>
+                    </ListItemButton>
+                </ListItem>
+                <Divider />
+                <ListItem disablePadding>
+                    <ListItemButton>
+                        <Link to='/contact' className='mobileMenu'>
+                            Contact Us
+                        </Link>
+                    </ListItemButton>
+                </ListItem>
+                <Divider />
+                <ListItem disablePadding>
+                    <ListItemButton>
+                        <Link to='/fund' className='mobileMenu'>
+                            Fund Raiser
+                        </Link>
+                    </ListItemButton>
+                </ListItem>
+                <Divider />
+                <ListItem disablePadding>
+                    <ListItemButton>
+                        <Link to='/education' className='mobileMenu'>
+                            Education and Training
+                        </Link>
+                    </ListItemButton>
+                </ListItem>
+            </List>
+        </Box>
+    );
+
 
     return (
         <AppBar color='transparent' position='fixed' id='appBar' style={{
             backgroundColor: navbarBackground,
-            boxShadow:'none'
-          }}>
+            boxShadow: 'none',
+            backdropFilter: 'blur(10px)'
+        }}
+        >
             <Container>
-                <Toolbar className='flex justify-between' variant='regular'>
-                    <Link to='/'><FitbitRoundedIcon fontSize='large' color='primary' className='cursor-pointer  hover:text-white rounded-full' /></Link>
-                    <ul className='flex'>
-                        <Link to='/'><li className={list_classes} style={{color:'#000'}}>Home</li></Link>
-                        <Link to='/education'><li className={list_classes} style={{color:'#000'}}>Education & Training</li></Link>
-                        <Link to='/fund'><li className={list_classes} style={{color:'#000'}}>Fund Raiser</li></Link>
-                        <Link to='/blog'><li className={list_classes} style={{color:'#000'}}>Blog</li></Link>
-                        <Link to='/about'><li className={list_classes} style={{color:'#000'}}>About</li></Link>
-                        <Link to='/team'><li className={list_classes} style={{color:'#000'}}>Our Team</li></Link>
-                        <Link to='/contact'><li className={list_classes} style={{color:'#000'}}>Contact Us</li></Link>
-                    </ul>
+                <nav className='navbar flex justify-between py-3 ' variant='regular'>
+                    <Link onClick={toggleDrawer(true)} className='menuIcon'><i className="fa-solid fa-bars"></i></Link>
+                    <SwipeableDrawer
+                        anchor={'top'}
+                        open={state}
+                        onClose={toggleDrawer(false)}
+                        onOpen={toggleDrawer(true)}
+                    >
+                        {list()}
+                    </SwipeableDrawer>
+
+                    <Link to='/'><FitbitRoundedIcon fontSize='large' color='primary' className='logo cursor-pointer  hover:text-black rounded-full' /></Link>
+
+                    <NavList />
+
                     <div className='flex'>
                         <div >
                             <Button variant='contained' size='small' onClick={handleClickLoginOpen} className='login-btn'>
-                                Login 
+                                Login
                             </Button>
                             <Dialog
                                 open={loginOpen}
@@ -76,21 +168,23 @@ function Navbar() {
                                 <Login registerOpen={registerOpen} setLoginOpen={setLoginOpen} setRegisterOpen={setRegisterOpen} />
                             </Dialog>
                             <Button variant='contained' color='error' size='small' onClick={handleClickRegisterOpen} className='login-btn'>
-                                Register 
+                                Sign Up
                             </Button>
                             <Dialog
                                 open={registerOpen}
                                 onClose={handleClose}
                                 className='dialog-box'
                             >
-                                <Register loginOpen={loginOpen} setLoginOpen={setLoginOpen} setRegisterOpen={setRegisterOpen} />
+                                <SignUp loginOpen={loginOpen} setLoginOpen={setLoginOpen} setRegisterOpen={setRegisterOpen} />
                             </Dialog>
                         </div>
                     </div>
-                </Toolbar>
+                </nav>
             </Container>
         </AppBar>
     )
 }
+
+
 
 export default Navbar

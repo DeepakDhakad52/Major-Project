@@ -16,6 +16,19 @@
     --primary-color : #1976d2;
 }
 
+html::-webkit-scrollbar {
+    width: 3px;
+}
+
+html::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+    background: #f97316;
+    border-radius: 20px;
+}
+
 section{
     padding-top: 5rem;
 }
@@ -25,7 +38,7 @@ section{
 }
 
 .nav-item:hover{
-    background-color: rgba(12, 93, 174, 0.358);
+    background-color: rgba(125, 192, 255, 0.358);
 }
 
 .login-btn{
@@ -37,6 +50,5 @@ section{
 }
 
 .dialog-box{
-    /* background: transparent !important; */
     backdrop-filter: blur(10px);
 }
