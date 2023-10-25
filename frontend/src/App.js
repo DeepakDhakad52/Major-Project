@@ -8,6 +8,7 @@ import FundRaiser from './components/FundRaiser';
 import About from './components/About';
 import OurTeam from './components/OurTeam';
 import Contact from './components/Contact';
+import ForgotPassword from './components/ForgotPassword';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path='/about' element={<About />} /> 
         <Route path='/team' element={<OurTeam />} /> 
         <Route path='/contact' element={<Contact />} /> 
+        <Route path='/forgetpassword' element={<ForgotPassword/> } /> 
       </Routes>
     </Router>
   );

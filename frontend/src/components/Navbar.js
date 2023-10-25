@@ -75,7 +75,7 @@ function Navbar() {
                 <ListItem disablePadding>
                     <ListItemButton>
                         <Link to='/' className='mobileMenu'>
-                            Home
+                        <i className="fa-solid fa-house text-orange-500"></i> Home
                         </Link>
                     </ListItemButton>
                 </ListItem>
@@ -83,7 +83,7 @@ function Navbar() {
                 <ListItem disablePadding>
                     <ListItemButton>
                         <Link to='/blog' className='mobileMenu'>
-                            Blog
+                        <i className="fa-solid fa-blog text-orange-500"></i> Blog
                         </Link>
                     </ListItemButton>
                 </ListItem>
@@ -91,7 +91,7 @@ function Navbar() {
                 <ListItem disablePadding>
                     <ListItemButton>
                         <Link to='/about' className='mobileMenu'>
-                            About
+                        <i className="fa-solid fa-address-card text-orange-500"></i> About
                         </Link>
                     </ListItemButton>
                 </ListItem>
@@ -99,7 +99,7 @@ function Navbar() {
                 <ListItem disablePadding>
                     <ListItemButton>
                         <Link to='/team' className='mobileMenu'>
-                            Our Team
+                        <i className="fa-solid fa-people-group text-orange-500"></i> Our Team
                         </Link>
                     </ListItemButton>
                 </ListItem>
@@ -107,7 +107,7 @@ function Navbar() {
                 <ListItem disablePadding>
                     <ListItemButton>
                         <Link to='/contact' className='mobileMenu'>
-                            Contact Us
+                        <i className="fa-solid fa-envelope text-orange-500"></i> Contact Us
                         </Link>
                     </ListItemButton>
                 </ListItem>
@@ -115,7 +115,7 @@ function Navbar() {
                 <ListItem disablePadding>
                     <ListItemButton>
                         <Link to='/fund' className='mobileMenu'>
-                            Fund Raiser
+                        <i className="fa-solid fa-sack-dollar text-orange-500 "></i> Fund Raiser
                         </Link>
                     </ListItemButton>
                 </ListItem>
@@ -123,7 +123,7 @@ function Navbar() {
                 <ListItem disablePadding>
                     <ListItemButton>
                         <Link to='/education' className='mobileMenu'>
-                            Education and Training
+                        <i className="fa-solid fa-school text-orange-500  "></i> Education and Training
                         </Link>
                     </ListItemButton>
                 </ListItem>

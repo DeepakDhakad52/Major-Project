@@ -10,7 +10,7 @@ module.exports = {
       'md': '0.375rem',
       'lg': '0.5rem',
       'full': '9999px',
-      'large': '56px',
+      'large': '20px',
     },
     extend: {
       rotate: {

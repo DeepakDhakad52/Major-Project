@@ -90,7 +90,7 @@ function Login({ registerOpen, setLoginOpen, setRegisterOpen }) {
                 <input type="checkbox" name="checkbox" id="checkbox" />
                 Remember Me
               </label>
-              <Link href="/forgetpassword">Forgot Password?</Link>
+              <Link to="/forgetpassword" onClick={()=>setLoginOpen(false)}>Forgot Password?</Link>
             </div>
             <button className="btn" type="submit">
               Login
