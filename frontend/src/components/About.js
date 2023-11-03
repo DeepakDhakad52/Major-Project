@@ -31,8 +31,7 @@ const About = () => {
           <h1>Our Vision and Mission</h1>
           <img src={image2} alt="hero" width={1000} height={700}></img>
         </div>
-        <div className='testimonials'>
-        
+        <div className='testimonials'>     
         </div>
       </div>
     </section>
