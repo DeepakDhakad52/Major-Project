@@ -1,63 +1,38 @@
 const userModel = require("../../../models/userModel.js");
 const bcrypt = require("bcrypt");
-const validate = require("../../../helper/utiles/validates.js");
-const generateAccessToken = require("../../../helper/utiles/generateAccessToken.js");
 
 const userRegister = async (req, res) => {
     try {
-        const { name,email,password } = req.body;
-        const rules = [
-            {
-                check : "isNotEmpty",
-                value: name, 
-                message : "User name should not be empty."
-            },
-            {
-                check: "isEmail",
-                value: email,
-                message: "Email is not valid.",
-            },
-            {
-                check: "passWordCheck",
-                value: password,
-                message:
-                  "Password length should be greater than 8 and Should contain 1 alphabet, 1 numeric and 1 special character.",
-            },
-        ];
-        //validating data
-        try {
-            validate(rules);
-        } catch (err) {
-            return res.status(400).json({status: "false" , content: {message: err.message}});
+        const { firstname, lastname,email, password } = req.body;
+        if (firstname === undefined || lastname === undefined ||email === undefined|| password === undefined) {
+            res.status(400).json({ success: "fail", result: { message: "All are required." } })
         }
 
-        let existingEmail = await userModel.findOne({email});
-        // console.log(existingPhone);
-
-        if(existingEmail) {
-            const haveUserwithEmail = await userModel.findOne({email});
-            if(haveUserwithEmail) {
-                return res.status(400).json({status : "false" , content: {message: "Email already exist"}});
+        else {
+            let existingUser;
+            existingUser = await userModel.findOne({ email });
+            if (existingUser) {
+                res.status(400).json({ success: "fail", result: { message: "username already exist" } });
             }
-        } else {
-            //change password to hashcode
-            const salt = await bcrypt.genSalt(parseInt(process.env.SALT_ROUND));
-            const hashedPassword = await bcrypt.hash(password, salt);
-            // console.log(hashedPassword)
-            const registeredUser = await userModel.create({
-                name,
-                email,
-                password : hashedPassword
-            });
-            if(!registeredUser) {
-                return res.status(400).json({ status: "false" , content: {message : "Error occured"}});
-            } else {
-                const { password, ...userWithoutPassword } = registeredUser.toObject();
-                return res.status(200).json({ status : "true" , content: {data:{userWithoutPassword} , message: "Register sucessfully"},})
+            else {
+                const salt = await bcrypt.genSalt(10);
+                const hashpassword = await bcrypt.hash(password, salt);
+                let user;
+               
+                user = new userModel({ firstname, lastname,email, password: hashpassword });
+                const userData = await user.save();
+                if (!userData) {
+                    res.status(400).json({ success: "fail", result: { message: "Error Occured" } });
+                }
+                else {
+                    res.status(200).json({ success: "ok", result: { userData, message: "Register successfully" } });
+                }
             }
         }
     } catch (err) {
-        return res.status(500).json({ status : "false" , content: {error: err , message : "unable to register at the moment."}})
+        console.log(err)
+        res.status(500).json({ success: "Fail", result: { error: err, message: "Try after some time" } });
     }
-};
+}
+
 module.exports = userRegister;

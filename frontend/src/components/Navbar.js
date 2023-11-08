@@ -5,12 +5,15 @@ import Login from './Login';
 import './styles/navbar.css'
 import SignUp from './SignUp'
 import { Link } from 'react-router-dom';
+import { IconButton } from '@mui/material'; 
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 
 
 function Navbar() {
     const [loginOpen, setLoginOpen] = React.useState(false);
     const [registerOpen, setRegisterOpen] = React.useState(false);
+    const [isLoggedIn, setIsLoggedIn] = React.useState(false);
     const [navbarBackground, setNavbarBackground] = React.useState("transparent");
     const [state, setState] = React.useState(false);
     const list_classes = 'nav-item tracking-wider text-sm font-medium cursor-pointer mx-2 px-4 py-1.5 rounded-full text-gray-950';
@@ -31,6 +34,10 @@ function Navbar() {
         };
     }, []);
 
+    const handleLogout = () => {
+        
+        setIsLoggedIn(false);
+    };
 
     const handleClickLoginOpen = () => {
         setLoginOpen(true);
@@ -131,6 +138,49 @@ function Navbar() {
         </Box>
     );
 
+    const AuthButtons = () => {
+        if (isLoggedIn) {
+            return (
+                <div>
+                    <Button
+                        variant='contained'
+                        size='small'
+                        onClick={handleLogout}
+                        className='login-btn'
+                    >
+                        Logout
+                    </Button>
+                    <Link to='/profile'>
+                        <IconButton>
+                            <AccountCircleIcon />
+                        </IconButton>
+                    </Link>
+                </div>
+            );
+        } else {
+            return (
+                <div>
+                    <Button
+                        variant='contained'
+                        size='small'
+                        onClick={handleClickLoginOpen}
+                        className='login-btn'
+                    >
+                        Login
+                    </Button>
+                    <Button
+                        variant='contained'
+                        color='error'
+                        size='small'
+                        onClick={handleClickRegisterOpen}
+                        className='login-btn'
+                    >
+                        Sign Up
+                    </Button>
+                </div>
+            );
+        }
+    };
 
     return (
         <AppBar color='transparent' position='fixed' id='appBar' style={{
@@ -156,26 +206,29 @@ function Navbar() {
                     <NavList />
 
                     <div className='flex'>
-                        <div >
-                            <Button variant='contained' size='small' onClick={handleClickLoginOpen} className='login-btn'>
-                                Login
-                            </Button>
+                        <div>
+                            <AuthButtons />
                             <Dialog
                                 open={loginOpen}
                                 onClose={handleClose}
                                 className='dialog-box'
                             >
-                                <Login registerOpen={registerOpen} setLoginOpen={setLoginOpen} setRegisterOpen={setRegisterOpen} />
+                                <Login
+                                    registerOpen={registerOpen}
+                                    setLoginOpen={setLoginOpen}
+                                    setRegisterOpen={setRegisterOpen}
+                                />
                             </Dialog>
-                            <Button variant='contained' color='error' size='small' onClick={handleClickRegisterOpen} className='login-btn'>
-                                Sign Up
-                            </Button>
                             <Dialog
                                 open={registerOpen}
                                 onClose={handleClose}
                                 className='dialog-box'
                             >
-                                <SignUp loginOpen={loginOpen} setLoginOpen={setLoginOpen} setRegisterOpen={setRegisterOpen} />
+                                <SignUp
+                                    loginOpen={loginOpen}
+                                    setLoginOpen={setLoginOpen}
+                                    setRegisterOpen={setRegisterOpen}
+                                />
                             </Dialog>
                         </div>
                     </div>
