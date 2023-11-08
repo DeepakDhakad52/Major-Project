@@ -17,7 +17,7 @@ const About = () => {
       <div className='main_container'>
         <div className='about'>
           <div className='main-left'>
-            <img src={image} alt='image' width={700} height={700}></img>
+            <img src={image} alt='about' width={700} height={700}></img>
           </div>
           <div className='main-right'>
             <h1>Who we are?</h1>
