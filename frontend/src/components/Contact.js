@@ -1,3 +1,4 @@
+import './styles/contact.css'
 import { Button, Container, TextField } from '@mui/material'
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import CallIcon from '@mui/icons-material/Call';
@@ -10,7 +11,7 @@ const Contact = () => {
     <section className='contact'>
       <div className='w-screen h-screen bg-white/[.8] absolute top-0 overflow-x-hidden'>
         <Container>
-          <div className="mx-auto flex mt-44 ">
+          <div className="contact-container mx-auto flex mt-44 ">
 
             <div className="contact1 w-1/2 p-4">
               <h1 className='text-5xl font-semibold mb-4 mt-2'>Get in Touch</h1>
