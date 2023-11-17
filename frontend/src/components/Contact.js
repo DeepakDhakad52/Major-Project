@@ -9,10 +9,9 @@ import React from 'react'
 const Contact = () => {
   return (
     <section className='contact'>
-      <div className='w-screen h-screen bg-white/[.8] absolute top-0 overflow-x-hidden'>
+      <div className='w-screen h-screen bg-white/[.8]'>
         <Container>
-          <div className="contact-container mx-auto flex mt-44 ">
-
+          <div className="contact-container mx-auto flex mt-24 ">
             <div className="contact1 w-1/2 p-4">
               <h1 className='text-5xl font-semibold mb-4 mt-2'>Get in Touch</h1>
               <div className='mt-8'>
@@ -70,24 +69,26 @@ const Contact = () => {
             </div>
           </div>
         </Container>
-        <div className='w-screen mt-24 p-16' style={{ background: 'rgb(254, 233, 209)' }}>
-          <Container>
-            <div className="flex p-8">
-              <div className='w-1/2 p-8'>
-                <h2 className='text-4xl font-semibold leading-snug text-center'>Register Now Forget 20% Discount Every Courses</h2>
-                <p className='text-center mt-4'>Nam ipsum risus, rutrum vitae, vestibulum eu, molestie vel, lacus. Sed magna purus, fermentum eu</p>
-                <div className=''>
-                  <input type="email" name="" id="" placeholder='Email address' className=' w-full rounded-lg text-sm mt-6 p-4 text-slate-800 outline-0' />
-                  <button className='btn' style={{marginTop:'1rem'}}>Register</button>
-                </div>
-              </div>
-              <div className='w-1/2'>
-                <img src={'https://zone-ui.vercel.app/assets/illustrations/illustration_newsletter.svg'} alt="contact" width={350} className='mx-auto' />
+      </div>
+      
+      <div className='w-screen p-16' style={{ background: 'rgb(254, 233, 209)' }}>
+        <Container>
+          <div className="flex p-8">
+            <div className='w-1/2 p-8'>
+              <h2 className='text-4xl font-semibold leading-snug text-center'>Register Now Forget 20% Discount Every Courses</h2>
+              <p className='text-center mt-4'>Nam ipsum risus, rutrum vitae, vestibulum eu, molestie vel, lacus. Sed magna purus, fermentum eu</p>
+              <div className=''>
+                <input type="email" name="" id="" placeholder='Email address' className=' w-full rounded-lg text-sm mt-6 p-4 text-slate-800 outline-0' />
+                <button className='btn' style={{ marginTop: '1rem' }}>Register</button>
               </div>
             </div>
-          </Container>
-        </div>
+            <div className='w-1/2'>
+              <img src={'https://zone-ui.vercel.app/assets/illustrations/illustration_newsletter.svg'} alt="contact" width={350} className='mx-auto' />
+            </div>
+          </div>
+        </Container>
       </div>
+
     </section>
   )
 }

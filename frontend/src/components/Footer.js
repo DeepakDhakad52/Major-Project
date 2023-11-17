@@ -7,10 +7,10 @@ function Footer() {
         <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 mb-6">
           <h3 className="text-2xl font-bold">Company<span className="text-yellow-500">logo</span></h3>
           <div className="text-gray-600">
-            <a href="#" className="block mb-2">Home</a>
-            <a href="#" className="block mb-2">Pricing</a>
-            <a href="#" className="block mb-2">About</a>
-            <a href="#" className="block">Contact</a>
+            <a href="#/" className="block mb-2">Home</a>
+            <a href="#/" className="block mb-2">Pricing</a>
+            <a href="#/" className="block mb-2">About</a>
+            <a href="#/" className="block">Contact</a>
           </div>
           <p className="text-gray-500">Company Name © 2015</p>
         </div>

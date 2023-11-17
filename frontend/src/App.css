@@ -16,6 +16,10 @@
     --primary-color : #1976d2;
 }
 
+body{
+    overflow-x: hidden;
+}
+
 html::-webkit-scrollbar {
     width: 3px;
 }
