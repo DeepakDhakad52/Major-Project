@@ -5,7 +5,7 @@ const Profile = () => {
   return (
     <div>
         <Navbar/>
-        <div>
+        <div className='mt-24'>
             Profile
         </div>
     </div>

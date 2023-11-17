@@ -20,7 +20,10 @@ const userSchema = new mongoose.Schema({
         unique:true,
         minLength: 3
     },
-    
+    agreeToTerms: {
+        type: Boolean,
+        required: true
+    }
 
 })
 module.exports = mongoose.model("user", userSchema);

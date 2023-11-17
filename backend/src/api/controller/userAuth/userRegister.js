@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 
 const userRegister = async (req, res) => {
     try {
-        const { firstname, lastname,email, password } = req.body;
+        const { firstname, lastname,email, password, agreeToTerms } = req.body;
         if (firstname === undefined || lastname === undefined ||email === undefined|| password === undefined) {
             res.status(400).json({ success: "fail", result: { message: "All are required." } })
         }
@@ -19,7 +19,7 @@ const userRegister = async (req, res) => {
                 const hashpassword = await bcrypt.hash(password, salt);
                 let user;
                
-                user = new userModel({ firstname, lastname,email, password: hashpassword });
+                user = new userModel({ firstname, lastname,email, password: hashpassword, agreeToTerms });
                 const userData = await user.save();
                 if (!userData) {
                     res.status(400).json({ success: "fail", result: { message: "Error Occured" } });

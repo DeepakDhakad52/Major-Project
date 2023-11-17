@@ -10,6 +10,7 @@ import OurTeam from './components/OurTeam';
 import Contact from './components/Contact';
 import ForgotPassword from './components/ForgotPassword';
 import Profile from './components/Profile';
+import Footer from './components/Footer';
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
         <Route path='/forgetpassword' element={<ForgotPassword/> } /> 
         <Route path='/profile' element={<Profile/>} />
       </Routes>
+      <Footer />
     </Router>
   );
 }

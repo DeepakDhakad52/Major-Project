@@ -4,7 +4,7 @@ import svg from './images/waves-shape.svg'
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import { Dialog } from '@mui/material'
 // import { Link } from 'react-router-dom'
-import Footer from './Footer';
+// import Footer from './Footer';
 import About from './About';
 
 const Header = () => {
@@ -50,7 +50,7 @@ const Header = () => {
 
         <About/>
       </section>
-      <Footer/>
+      {/* <Footer/> */}
     </>
   )
 }
