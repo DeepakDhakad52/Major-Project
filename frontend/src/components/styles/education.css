@@ -2,7 +2,7 @@ section.education *{
     z-index: 1;
 }
 
-section.education{
+section.education, div.forgotPassword{
     background-image: url('../images/overlay.jpg');
     background-repeat: no-repeat;
     background-size: cover;
