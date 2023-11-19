@@ -4,6 +4,7 @@ import image from "../components/images/about1.jpg";
 import image2 from '../components/images/about3.png';
 import './styles/about.css';
 import './Blog';
+import { Container } from '@mui/material';
 
 const About = () => {
   const navigate = useNavigate();
@@ -14,6 +15,7 @@ const About = () => {
 
   return (
     <section>
+    <Container>
       <div className='main_container'>
         <div className='about'>
           <div className='main-left'>
@@ -34,6 +36,7 @@ const About = () => {
         <div className='testimonials'>     
         </div>
       </div>
+      </Container>
     </section>
   )
 }
