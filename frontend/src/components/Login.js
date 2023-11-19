@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Link } from 'react-router-dom'
+import { Link ,useNavigate} from 'react-router-dom'
 import "./styles/login.css";
 import { Avatar, Box, Typography } from "@mui/material";
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import axios from 'axios';
 
 function Login({ registerOpen, setLoginOpen, setRegisterOpen }) {
   const [formData, setFormData] = useState({
@@ -10,10 +11,22 @@ function Login({ registerOpen, setLoginOpen, setRegisterOpen }) {
     password: "",
   });
 
+  const navigate = useNavigate();
+
   function handleSubmit(e) {
     e.preventDefault();
-
-    console.log("Form Data:", formData);
+    axios.post("http://localhost:5000/v1/auth/signin", formData)
+      .then(response => {
+        
+        console.log("Login success:", response.data);
+        setLoginOpen(false);
+        navigate("/profile");
+      })
+      .catch(error => {
+        
+        console.error("Login failed:", error);
+      });
+    // console.log("Form Data:", formData);
 
     setFormData({
       email: "",

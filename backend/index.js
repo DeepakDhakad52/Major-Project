@@ -8,7 +8,7 @@ const dotenv = require("dotenv");
 
 //routes
 const userRoutes = require("./src/api/routes/userRoutes.js");
-const roleRoutes = require("./src/api/routes/roleRoutes.js")
+
 
 dotenv.config();
 dbConnect();
