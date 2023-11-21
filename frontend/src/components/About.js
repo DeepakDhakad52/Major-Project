@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import image from "../components/images/about1.jpg";
 import './styles/about.css';
-import './Blog';
+import '../components/Blog/Blog.js';
 import aboutdata from './AboutPage.js';
 import { Container } from '@mui/material';
 
