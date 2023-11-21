@@ -1,8 +1,9 @@
-import './styles/education.css'
+import '../styles/education.css'
 import { Button, Container } from '@mui/material'
-import teacher from './images/home_hero.png'
+import teacher from '../images/home_hero.png'
 import React from 'react'
-import { WeWorkWith } from './Home'
+import { WeWorkWith } from '../Home'
+
 
 const EducationAndTraining = () => {
   return (
