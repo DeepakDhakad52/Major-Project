@@ -16,6 +16,10 @@
     --primary-color : #1976d2;
 }
 
+body{
+    overflow-x: hidden;
+}
+
 html::-webkit-scrollbar {
     width: 3px;
 }
@@ -51,4 +55,31 @@ section{
 
 .dialog-box{
     backdrop-filter: blur(10px);
+}
+
+.social-icons{
+    margin-top: 1rem;
+}
+
+.social-icons a{
+    display: inline-block;
+    font-size: 2rem;
+    margin: 0 .5rem;
+    transition: all .5s ease-out;
+}
+.social-icons a:hover{
+    transform: scale(1.2);
+}
+
+.social-icons .linkedin{
+    color: #0077B5;    
+}
+.social-icons .insta{
+    color:#FF5A5F;
+}
+.social-icons .fb{
+    color:#3051f1;
+}
+.social-icons .twitter{
+    color: #1DA1F2;
 }

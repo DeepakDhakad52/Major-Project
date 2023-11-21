@@ -1,6 +1,8 @@
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { Avatar, Box, Typography } from '@mui/material';
-import React from 'react'
+import React from 'react';
+import axios from 'axios';
+import { useNavigate} from 'react-router-dom'
 
 const Register = ({ loginOpen, setLoginOpen, setRegisterOpen }) => {
     const [formData, setFormData] = React.useState({
@@ -10,6 +12,7 @@ const Register = ({ loginOpen, setLoginOpen, setRegisterOpen }) => {
         password: '',
         agreeToTerms: false,
     });
+    const navigate = useNavigate();
 
     // Handle input changes and update the state
     const handleInputChange = (e) => {
@@ -26,14 +29,25 @@ const Register = ({ loginOpen, setLoginOpen, setRegisterOpen }) => {
         e.preventDefault();
 
         console.log(formData);
+        try {
+            const response = await axios.post("http://localhost:5000/v1/auth/signup", formData);
+            console.log(response); 
+            setFormData({
+                firstname: '',
+                lastname: '',
+                email: '',
+                password: '',
+                agreeToTerms: false,
+            });
+            setLoginOpen(true);
+            navigate("/profile");
+      
+          } catch (error) {
+           
+            console.error("Registration failed", error);
+          }
 
-        setFormData({
-            firstname: '',
-            lastname: '',
-            email: '',
-            password: '',
-            agreeToTerms: false,
-        });
+        
     };
 
 
