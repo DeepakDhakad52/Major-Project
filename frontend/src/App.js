@@ -1,14 +1,14 @@
 import './App.css';
 import Navbar from './components/Navbar';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
-import Blog from './components/Blog';
+import Blog from './components/Blog/Blog'
 import Home from './components/Home';
-import EducationAndTraining from './components/EducationAndTraining';
-import FundRaiser from './components/FundRaiser';
+import EducationAndTraining from './components/Education and Training/EducationAndTraining';
+import FundRaiser from './components/FundRaiser/FundRaiser';
 import About from './components/About';
 import OurTeam from './components/OurTeam';
 import Contact from './components/Contact';
-import ForgotPassword from './components/ForgotPassword';
+import ForgotPassword from './components/Authentication/ForgotPassword';
 import Profile from './components/Profile';
 import Footer from './components/Footer';
 

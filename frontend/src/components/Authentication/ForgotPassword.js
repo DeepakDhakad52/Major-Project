@@ -1,8 +1,8 @@
 import React from 'react'
-import './styles/forgotPassword.css'
+import '../styles/forgotPassword.css'
 import { Container } from '@mui/material'
 import { Link } from 'react-router-dom'
-import lock from './images/ic_lock_password.svg'
+import lock from '../images/ic_lock_password.svg'
 
 const ForgotPassword = () => {
     return (
