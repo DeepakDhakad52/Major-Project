@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link ,useNavigate} from 'react-router-dom'
-import "./styles/login.css";
+import "../styles/login.css";
 import { Avatar, Box, Typography } from "@mui/material";
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import axios from 'axios';

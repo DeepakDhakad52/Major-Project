@@ -1,9 +1,9 @@
 import { AppBar, Box, Button, Container, Dialog, Divider, List, ListItem, ListItemButton, SwipeableDrawer } from '@mui/material'
 import React from 'react'
 import FitbitRoundedIcon from '@mui/icons-material/FitbitRounded';
-import Login from './Login';
+import Login from './Authentication/Login';
+import SignUp from './Authentication/SignUp'
 import './styles/navbar.css'
-import SignUp from './SignUp'
 import { Link } from 'react-router-dom';
 import { IconButton } from '@mui/material';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
