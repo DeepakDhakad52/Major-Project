@@ -1,11 +1,11 @@
 import { AppBar, Box, Button, Container, Dialog, Divider, List, ListItem, ListItemButton, SwipeableDrawer } from '@mui/material'
 import React from 'react'
 import FitbitRoundedIcon from '@mui/icons-material/FitbitRounded';
-import Login from './Login';
+import Login from './Authentication/Login';
+import SignUp from './Authentication/SignUp'
 import './styles/navbar.css'
-import SignUp from './SignUp'
 import { Link } from 'react-router-dom';
-import { IconButton } from '@mui/material'; 
+import { IconButton } from '@mui/material';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 
@@ -16,7 +16,6 @@ function Navbar() {
     const [isLoggedIn, setIsLoggedIn] = React.useState(false);
     const [navbarBackground, setNavbarBackground] = React.useState("transparent");
     const [state, setState] = React.useState(false);
-    const list_classes = 'nav-item tracking-wider text-sm font-medium cursor-pointer mx-2 px-4 py-1.5 rounded-full text-gray-950';
 
     React.useEffect(() => {
         const handleScroll = () => {
@@ -35,7 +34,6 @@ function Navbar() {
     }, []);
 
     const handleLogout = () => {
-        
         setIsLoggedIn(false);
     };
 
@@ -57,19 +55,6 @@ function Navbar() {
         setState(open);
     };
 
-    const NavList = () => {
-        return (
-            <ul className='nav-items flex'>
-                <Link to='/'><li className={list_classes} >Home</li></Link>
-                <Link to='/education'><li className={list_classes} >Education & Training</li></Link>
-                <Link to='/fund'><li className={list_classes} >Fund Raiser</li></Link>
-                <Link to='/blog'><li className={list_classes} >Blog</li></Link>
-                <Link to='/about'><li className={list_classes}>About</li></Link>
-                <Link to='/team'><li className={list_classes} >Our Team</li></Link>
-                <Link to='/contact'><li className={list_classes}>Contact Us</li></Link>
-            </ul>
-        )
-    }
 
     const list = () => (
         <Box
@@ -82,7 +67,7 @@ function Navbar() {
                 <ListItem disablePadding>
                     <ListItemButton>
                         <Link to='/' className='mobileMenu'>
-                        <i className="fa-solid fa-house text-orange-500"></i> Home
+                            <i className="fa-solid fa-house text-orange-500"></i> Home
                         </Link>
                     </ListItemButton>
                 </ListItem>
@@ -90,7 +75,7 @@ function Navbar() {
                 <ListItem disablePadding>
                     <ListItemButton>
                         <Link to='/blog' className='mobileMenu'>
-                        <i className="fa-solid fa-blog text-orange-500"></i> Blog
+                            <i className="fa-solid fa-blog text-orange-500"></i> Blog
                         </Link>
                     </ListItemButton>
                 </ListItem>
@@ -98,7 +83,7 @@ function Navbar() {
                 <ListItem disablePadding>
                     <ListItemButton>
                         <Link to='/about' className='mobileMenu'>
-                        <i className="fa-solid fa-address-card text-orange-500"></i> About
+                            <i className="fa-solid fa-address-card text-orange-500"></i> About
                         </Link>
                     </ListItemButton>
                 </ListItem>
@@ -106,7 +91,7 @@ function Navbar() {
                 <ListItem disablePadding>
                     <ListItemButton>
                         <Link to='/team' className='mobileMenu'>
-                        <i className="fa-solid fa-people-group text-orange-500"></i> Our Team
+                            <i className="fa-solid fa-people-group text-orange-500"></i> Our Team
                         </Link>
                     </ListItemButton>
                 </ListItem>
@@ -114,7 +99,7 @@ function Navbar() {
                 <ListItem disablePadding>
                     <ListItemButton>
                         <Link to='/contact' className='mobileMenu'>
-                        <i className="fa-solid fa-envelope text-orange-500"></i> Contact Us
+                            <i className="fa-solid fa-envelope text-orange-500"></i> Contact Us
                         </Link>
                     </ListItemButton>
                 </ListItem>
@@ -122,7 +107,7 @@ function Navbar() {
                 <ListItem disablePadding>
                     <ListItemButton>
                         <Link to='/fund' className='mobileMenu'>
-                        <i className="fa-solid fa-sack-dollar text-orange-500 "></i> Fund Raiser
+                            <i className="fa-solid fa-sack-dollar text-orange-500 "></i> Fund Raiser
                         </Link>
                     </ListItemButton>
                 </ListItem>
@@ -130,7 +115,7 @@ function Navbar() {
                 <ListItem disablePadding>
                     <ListItemButton>
                         <Link to='/education' className='mobileMenu'>
-                        <i className="fa-solid fa-school text-orange-500  "></i> Education and Training
+                            <i className="fa-solid fa-school text-orange-500  "></i> Education and Training
                         </Link>
                     </ListItemButton>
                 </ListItem>
@@ -217,6 +202,7 @@ function Navbar() {
                                     registerOpen={registerOpen}
                                     setLoginOpen={setLoginOpen}
                                     setRegisterOpen={setRegisterOpen}
+                                    setIsLoggedIn={setIsLoggedIn}
                                 />
                             </Dialog>
                             <Dialog
@@ -238,6 +224,19 @@ function Navbar() {
     )
 }
 
-
+const NavList = () => {
+    const list_classes = 'nav-item tracking-wider text-sm font-medium cursor-pointer mx-2 px-4 py-1.5 rounded-full text-gray-950';
+    return (
+        <ul className='nav-items flex'>
+            <Link to='/'><li className={list_classes} >Home</li></Link>
+            <Link to='/education'><li className={list_classes} >Education & Training</li></Link>
+            <Link to='/fund'><li className={list_classes} >Fund Raiser</li></Link>
+            <Link to='/blog'><li className={list_classes} >Blog</li></Link>
+            <Link to='/about'><li className={list_classes}>About</li></Link>
+            <Link to='/team'><li className={list_classes} >Our Team</li></Link>
+            <Link to='/contact'><li className={list_classes}>Contact Us</li></Link>
+        </ul>
+    )
+}
 
 export default Navbar

@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Link ,useNavigate} from 'react-router-dom'
-import "./styles/login.css";
+import "../styles/login.css";
 import { Avatar, Box, Typography } from "@mui/material";
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import axios from 'axios';
 
-function Login({ registerOpen, setLoginOpen, setRegisterOpen }) {
+function Login({ registerOpen, setLoginOpen, setRegisterOpen, setIsLoggedIn }) {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -17,13 +17,12 @@ function Login({ registerOpen, setLoginOpen, setRegisterOpen }) {
     e.preventDefault();
     axios.post("http://localhost:5000/v1/auth/signin", formData)
       .then(response => {
-        
         console.log("Login success:", response.data);
+        setIsLoggedIn(true);
         setLoginOpen(false);
         navigate("/profile");
       })
       .catch(error => {
-        
         console.error("Login failed:", error);
       });
     // console.log("Form Data:", formData);
@@ -49,12 +48,10 @@ function Login({ registerOpen, setLoginOpen, setRegisterOpen }) {
     }
   }
 
-
   return (
     <div className="align">
       <div className="wrapper">
         <div className="form-box login">
-          {/* <h2>Login</h2> */}
           <Box
             sx={{
               display: 'flex',
