@@ -3,6 +3,7 @@ import { Button, Container } from '@mui/material'
 import teacher from '../images/home_hero.png'
 import React from 'react'
 import { WeWorkWith } from '../Home'
+import FeaturedCourses from './FeaturedCourses'
 
 
 const EducationAndTraining = () => {
@@ -30,8 +31,45 @@ const EducationAndTraining = () => {
           </Container>
         </div>
       </section>
+
       <WeWorkWith />
+      <IntroComponent />
+      <FeaturedCourses />
+
     </>
+  )
+}
+
+export const IntroComponent = () => {
+  return (
+    <Container>
+      <section className='my-20'>
+        <div className='mb-20'>
+          <span className='ml-2 text-orange-600 font-semibold text-center'>NULLAM ACCUMSAN LOREM IN DUI.</span>
+        </div>
+        <div className='flex justify-between'>
+          <div className=''>
+            <img src={'https://zone-ui.vercel.app/assets/images/course/course_6.jpg'} alt="girl" className='rounded-[20px]' />
+          </div>
+          <div className='w-[60%] p-20'>
+            <div className=''>
+              <h3 className='text-3xl font-semibold my-2'>Phasellus gravida semper nisi. Vestibulum rutrum</h3>
+              <p className='text-gray-600 my-4'>Curabitur a felis in nunc fringilla tristique. Fusce egestas elit eget lorem. Etiam vitae tortor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos.</p>
+            </div>
+            <div className='flex mt-16 text-gray-600 '>
+              <div>
+                <span className='bg-orange-500 inline-block w-[30px] h-[4px]'></span>
+                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis</p>
+              </div>
+              <div>
+                <span className='bg-orange-500 inline-block w-[30px] h-[4px]'></span>
+                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </Container>
   )
 }
 
