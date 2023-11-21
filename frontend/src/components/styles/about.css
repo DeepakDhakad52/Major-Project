@@ -28,8 +28,6 @@
 .about_our_vision{
     margin: 8%;
     padding: 5%;
-    display: flex;
-    flex-direction: column;
 }
 
 .about_our_vision img{
@@ -46,5 +44,35 @@
     font-size: 50px;
     font-weight: 500;
 }
-
+.about_our_vision .vision{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    justify-content: center;
+    align-items: center;
+} 
+.about_our_vision .content{
+    box-sizing: border-box;
+    border: 1px solid black;
+    width: 200px;
+    height: 250px;  
+    margin: 50px 10px; 
+    padding: 5px;
+    text-align: center;
+}
+.about_our_vision .content h3{
+    font-size: 20px;
+    font-weight: 600;
+    color: black;
+}
+.content .centered-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+.about_our_vision .content p{
+    font-size: 15px;
+    font-weight: 400;
+    color: black;
+}
 
