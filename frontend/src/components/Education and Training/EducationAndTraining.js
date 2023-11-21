@@ -4,6 +4,7 @@ import teacher from '../images/home_hero.png'
 import React from 'react'
 import { WeWorkWith } from '../Home'
 import FeaturedCourses from './FeaturedCourses'
+import OurTeam from '../OurTeam'
 
 
 const EducationAndTraining = () => {
@@ -12,7 +13,7 @@ const EducationAndTraining = () => {
       <section className='education relative overflow-x-hidden'>
         <div className='w-screen h-screen bg-white/[.93] absolute top-0 overflow-hidden'>
           <Container>
-            <div className="container flex flex-row py-44 mx-[10%] max-w-6xl ">
+            <div className="container flex flex-row py-44 mx-[10%] max-w-6xl">
               <div className="content w-[35%] p-2">
                 <h2 className='font-bold  text-6xl text-slate-800 leading-snug'>Free <span className=' text-slate-400'>Online</span> <span className='text-orange-500 underline underline-offset-2'>Courses</span> From The Expert</h2>
                 <p className='my-6 font-md text-slate-800 px-2 '>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est explicabo sed, tenetur tempore debitis at odio minima obcaecati </p>
@@ -35,6 +36,8 @@ const EducationAndTraining = () => {
       <WeWorkWith />
       <IntroComponent />
       <FeaturedCourses />
+      <FeaturedCategory />
+      <OurTeam />
 
     </>
   )
@@ -70,6 +73,47 @@ export const IntroComponent = () => {
         </div>
       </section>
     </Container>
+  )
+}
+
+export const FeaturedCategory = () => {
+  const featuredCategoryData = [
+    { title: 'Technology', studentCount: 497 },
+    { title: 'Marketing', studentCount: 763 },
+    { title: 'Design', studentCount: 684 },
+    { title: 'Photography', studentCount: 451 },
+    { title: 'Art', studentCount: 433 },
+    { title: 'Fashion', studentCount: 463 },
+    { title: 'Food', studentCount: 951 },
+    { title: 'Travel', studentCount: 194 },
+    { title: 'Fitnes', studentCount: 425 },
+  ]
+  return (
+    <div className='bg-zinc-100 py-32'>
+      <Container>
+        <div className='flex justify-between'>
+          <div className='w-[35%] p-4'>
+            <h2 className='text-5xl font-bold text-gray-900 leading-tight'>Featured Category</h2>
+            <p className='text-gray-500 my-6'>Since wire-frame renderings are relatively simple and fast to calculate, they are often used in cases</p>
+            <button className='border border-black p-4 rounded-lg font-semibold transition-all duration-400 hover:bg-neutral-800 hover:text-white'>
+              Explore More <i className="fa-solid fa-angle-right" />
+            </button>
+          </div>
+          <div className='w-[60%]'>
+            <div className='grid grid-cols-3 gap-6'>
+              {
+                featuredCategoryData.map(data =>
+                  <div className={'border border-slate-300 rounded-[12px] p-4 w-[220px] transition duration-300 hover:text-orange-600 hover:cursor-pointer hover:bg-white hover:shadow-[0px_5px_25px_rgba(0,0,0,0.3)]'}>
+                    <h6 className='text-xl font-semibold my-3'>{data.title}</h6>
+                    <span className='text-gray-500'>{data.studentCount} students</span>
+                  </div>
+                )
+              }
+            </div>
+          </div>
+        </div>
+      </Container>
+    </div>
   )
 }
 
