@@ -5,6 +5,7 @@ import CallIcon from '@mui/icons-material/Call';
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 
 import React from 'react'
+import OurTeam from './OurTeam';
 
 const Contact = () => {
   return (
@@ -70,7 +71,10 @@ const Contact = () => {
           </div>
         </Container>
       </div>
+      
       <Discount />
+      <OurTeam />
+      
     </section>
   )
 }
