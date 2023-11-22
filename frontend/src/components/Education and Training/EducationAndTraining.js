@@ -5,6 +5,7 @@ import React from 'react'
 import { WeWorkWith } from '../Home'
 import FeaturedCourses from './FeaturedCourses'
 import OurTeam from '../OurTeam'
+import DownloadApp from './DownloadApp'
 
 
 const EducationAndTraining = () => {
@@ -38,6 +39,7 @@ const EducationAndTraining = () => {
       <FeaturedCourses />
       <FeaturedCategory />
       <OurTeam />
+      <DownloadApp />
 
     </>
   )
