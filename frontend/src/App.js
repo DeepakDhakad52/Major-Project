@@ -11,6 +11,8 @@ import Contact from './components/Contact';
 import ForgotPassword from './components/Authentication/ForgotPassword';
 import Profile from './components/Profile';
 import Footer from './components/Footer';
+import CourseDetails from './components/Education and Training/CourseDetails';
+import Course from './components/Education and Training/Course';
 
 
 function App() {
@@ -26,7 +28,9 @@ function App() {
         <Route path='/team' element={<OurTeam />} /> 
         <Route path='/contact' element={<Contact />} /> 
         <Route path='/forgetpassword' element={<ForgotPassword/> } /> 
-        <Route path='/profile' element={<Profile/>} />
+        <Route path='/profile' element={<Profile />} />
+        <Route path='/course' element={<Course />} />
+        <Route path='/course/:id' element={<CourseDetails />} />
       </Routes>
       <Footer />
     </Router>

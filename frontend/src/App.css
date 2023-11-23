@@ -46,11 +46,12 @@ section{
 }
 
 .login-btn{
-    /* color: black !important; */
-    /* background-color: antiquewhite !important; */
     text-transform: capitalize !important;
-    /* background-color: rgb(0, 109, 225) !important; */
     margin-right: .5rem !important;
+}
+
+.download-btn:hover{
+    background: rgba(0, 0, 0, 1) !important;
 }
 
 .dialog-box{

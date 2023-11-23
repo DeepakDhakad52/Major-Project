@@ -10,7 +10,7 @@ const About = () => {
   const navigate = useNavigate();
 
   const handleClick = (event) => {
-    navigate('/Blog');
+    navigate('/');
   }
 
   return (
@@ -26,7 +26,7 @@ const About = () => {
               <p>Vivamus consectetuer hendrerit lacus. Curabitur a felis in nunc fringilla tristique. Nulla neque dolor, sagittis eget, iaculis quis, molestie non, velit.<br></br>
                 Nam pretium turpis et arcu. Praesent porttitor, nulla vitae posuere iaculis, arcu nisl dignissim dolor, a pretium mi sem ut ipsum. Praesent venenatis metus at tortor pulvinar varius.
               </p>
-              <button onClick={handleClick}>Check Our Work </button>
+              <button onClick={handleClick} className='rounded-lg'>Check Our Work </button>
             </div>
           </div>
           <div className='about_our_vision'>
@@ -34,7 +34,7 @@ const About = () => {
             <div className='vision'>
               {
                 aboutdata.map((element) => (
-                  <div className='content'>
+                  <div className='content rounded-lg' key={element.heading}>
                     <h3>{element.heading}</h3>
                     <div className='centered-image'>
                       <img src={element.image} alt={element.heading} width={100} height={100} />
