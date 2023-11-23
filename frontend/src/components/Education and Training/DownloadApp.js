@@ -21,7 +21,7 @@ const DownloadApp = () => {
                                 <Button
                                     variant="contained"
                                     sx={{ background: '#121212', padding: '0', borderRadius: '10px', textTransform: 'capitalize', textAlign: 'left' }}
-                                    className="hover:bg-gray-800"
+                                    className="download-btn"
                                 >
                                     <span className="text-white flex p-2">
                                         <AppleIcon fontSize="large" />
@@ -34,6 +34,7 @@ const DownloadApp = () => {
                                 <Button
                                     variant="contained"
                                     sx={{ background: '#121212', padding: '0', borderRadius: '10px', textTransform: 'capitalize', textAlign: 'left' }}
+                                    className="download-btn"
                                 >
                                     <span className="text-white flex p-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="component-iconify MuiBox-root css-1wl1iil iconify iconify--logos" width="0.91em" height="1em" viewBox="0 0 256 283" className="text-2xl my-2">

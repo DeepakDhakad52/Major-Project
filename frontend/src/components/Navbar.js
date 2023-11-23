@@ -15,14 +15,17 @@ function Navbar() {
     const [registerOpen, setRegisterOpen] = React.useState(false);
     const [isLoggedIn, setIsLoggedIn] = React.useState(false);
     const [navbarBackground, setNavbarBackground] = React.useState("transparent");
+    const [navbarBlur, setNavbarBlur] = React.useState("none");
     const [state, setState] = React.useState(false);
 
     React.useEffect(() => {
         const handleScroll = () => {
             if (window.scrollY > 1) {
                 setNavbarBackground("#ffffffcb");
+                setNavbarBlur('blur(7px)');
             } else {
                 setNavbarBackground("transparent");
+                setNavbarBlur('none')
             }
         };
 
@@ -171,7 +174,7 @@ function Navbar() {
         <AppBar color='transparent' position='fixed' id='appBar' style={{
             backgroundColor: navbarBackground,
             boxShadow: 'none',
-            backdropFilter: 'blur(10px)'
+            backdropFilter: navbarBlur
         }}
         >
             <Container>

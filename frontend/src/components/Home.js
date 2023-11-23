@@ -58,7 +58,7 @@ export const WeWorkWith = () => {
         <div className='flex my-8 flex-wrap justify-center'>
           {
             customer.map(customer =>
-              <div className={customerClass}>
+              <div className={customerClass} key={customer}>
                 {customer}
               </div>
             )
