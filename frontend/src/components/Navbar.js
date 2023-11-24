@@ -5,12 +5,11 @@ import Login from './Authentication/Login';
 import SignUp from './Authentication/SignUp'
 import './styles/navbar.css'
 import { Link } from 'react-router-dom';
-import { IconButton } from '@mui/material';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import Avtarr from './pages/Avtarr';
 
 
 
-function Navbar() {
+function Navbar({ checkUserIsAuthenticate }) {
     const [loginOpen, setLoginOpen] = React.useState(false);
     const [registerOpen, setRegisterOpen] = React.useState(false);
     const [isLoggedIn, setIsLoggedIn] = React.useState(false);
@@ -126,23 +125,12 @@ function Navbar() {
         </Box>
     );
 
-    const AuthButtons = () => {
+    const AuthButtons = ({ checkUserIsAuthenticate }) => {
+        checkUserIsAuthenticate(isLoggedIn);
         if (isLoggedIn) {
             return (
                 <div>
-                    <Button
-                        variant='contained'
-                        size='small'
-                        onClick={handleLogout}
-                        className='login-btn'
-                    >
-                        Logout
-                    </Button>
-                    <Link to='/profile'>
-                        <IconButton>
-                            <AccountCircleIcon />
-                        </IconButton>
-                    </Link>
+                    <Avtarr handleLogout={handleLogout} />
                 </div>
             );
         } else {
@@ -195,7 +183,7 @@ function Navbar() {
 
                     <div className='flex'>
                         <div>
-                            <AuthButtons />
+                            <AuthButtons checkUserIsAuthenticate={checkUserIsAuthenticate} />
                             <Dialog
                                 open={loginOpen}
                                 onClose={handleClose}

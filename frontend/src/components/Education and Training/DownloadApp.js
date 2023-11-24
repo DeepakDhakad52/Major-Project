@@ -37,7 +37,7 @@ const DownloadApp = () => {
                                     className="download-btn"
                                 >
                                     <span className="text-white flex p-2">
-                                        <svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="component-iconify MuiBox-root css-1wl1iil iconify iconify--logos" width="0.91em" height="1em" viewBox="0 0 256 283" className="text-2xl my-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" className="component-iconify MuiBox-root css-1wl1iil iconify iconify--logos text-2xl my-2" width="0.91em" height="1em" viewBox="0 0 256 283">
                                             <path fill="#EA4335" d="M119.553 134.916L1.06 259.061a32.14 32.14 0 0 0 47.062 19.071l133.327-75.934l-61.896-67.282Z"></path>
                                             <path fill="#FBBC04" d="M239.37 113.814L181.715 80.79l-64.898 56.95l65.162 64.28l57.216-32.67a31.345 31.345 0 0 0 0-55.537h.177Z"></path>
                                             <path fill="#4285F4" d="M1.06 23.487A30.565 30.565 0 0 0 0 31.61v219.327a32.333 32.333 0 0 0 1.06 8.124l122.555-120.966L1.06 23.487Z"></path>

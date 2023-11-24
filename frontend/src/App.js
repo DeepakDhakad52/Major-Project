@@ -13,12 +13,21 @@ import Profile from './components/Profile';
 import Footer from './components/Footer';
 import CourseDetails from './components/Education and Training/CourseDetails';
 import Course from './components/Education and Training/Course';
-
+import React from 'react';
+import NotAuthenticate from './components/Authentication/NotAuthenticate';
 
 function App() {
+  const [auth, setAuth] = React.useState(false);
+  const checkUserIsAuthenticate = (isLoggedIn) => {
+    if(isLoggedIn){
+      setAuth(true);
+    } else {
+      setAuth(false);
+    }
+  }
   return (
     <Router>
-      <Navbar />
+      <Navbar checkUserIsAuthenticate={checkUserIsAuthenticate} />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/education' element={<EducationAndTraining />} />
@@ -28,7 +37,10 @@ function App() {
         <Route path='/team' element={<OurTeam />} /> 
         <Route path='/contact' element={<Contact />} /> 
         <Route path='/forgetpassword' element={<ForgotPassword/> } /> 
-        <Route path='/profile' element={<Profile />} />
+        {
+          auth ? <Route path='/profile' element={<Profile />} /> : <Route path='/profile' element={<NotAuthenticate />}/>
+        }
+        
         <Route path='/course' element={<Course />} />
         <Route path='/course/:id' element={<CourseDetails />} />
       </Routes>
