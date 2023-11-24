@@ -3,6 +3,7 @@ import { Button, Container } from '@mui/material'
 import teacher from '../images/home_hero.png'
 import React from 'react'
 import { WeWorkWith } from '../Home'
+import { Discount } from '../Contact'
 import FeaturedCourses from './FeaturedCourses'
 import OurTeam from '../OurTeam'
 import DownloadApp from './DownloadApp'
@@ -43,6 +44,7 @@ const EducationAndTraining = () => {
       <FeaturedCourses />
       <FeaturedCategory />
       <OurTeam />
+      <Discount />
       <DownloadApp />
 
     </>

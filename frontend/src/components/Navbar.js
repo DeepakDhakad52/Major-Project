@@ -228,7 +228,7 @@ function Navbar() {
 }
 
 const NavList = () => {
-    const list_classes = 'nav-item tracking-wider text-sm font-medium cursor-pointer mx-2 px-4 py-1.5 rounded-full text-gray-950';
+    const list_classes = 'nav-item tracking-wider text-sm font-medium cursor-pointer mx-2 px-4 py-1.5 rounded-full text-gray-950 transition-all duration-200 hover:bg-blue-100';
     return (
         <ul className='nav-items flex'>
             <Link to='/'><li className={list_classes} >Home</li></Link>
