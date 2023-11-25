@@ -15,18 +15,15 @@ import CourseDetails from './components/Education and Training/CourseDetails';
 import Course from './components/Education and Training/Course';
 import React from 'react';
 import NotAuthenticate from './components/Authentication/NotAuthenticate';
+import CustomSnackbar from './components/Authentication/CustomSnackbar';
 
 function App() {
   const [auth, setAuth] = React.useState(false);
-  const checkUserIsAuthenticate = (isLoggedIn) => {
-    if(isLoggedIn){
-      setAuth(true);
-    } else {
-      setAuth(false);
-    }
-  }
+  const checkUserIsAuthenticate = isLoggedIn => isLoggedIn ? setAuth(true) : setAuth(false);
+
   return (
     <Router>
+      {auth ? <CustomSnackbar /> : null}
       <Navbar checkUserIsAuthenticate={checkUserIsAuthenticate} />
       <Routes>
         <Route path='/' element={<Home />} />
@@ -39,8 +36,7 @@ function App() {
         <Route path='/forgetpassword' element={<ForgotPassword/> } /> 
         {
           auth ? <Route path='/profile' element={<Profile />} /> : <Route path='/profile' element={<NotAuthenticate />}/>
-        }
-        
+        }        
         <Route path='/course' element={<Course />} />
         <Route path='/course/:id' element={<CourseDetails />} />
       </Routes>
