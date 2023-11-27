@@ -12,7 +12,19 @@ import PersonalInfo from "./PersonalInfo";
 import Voucher from "./Voucher";
 
 
-const Profile = ({ firstName = 'Deepak', lastName = 'Dhakad', email = 'nannie_abernathy70@yahoo.com', setIsLoggedIn }) => {
+const Profile = ({ setIsLoggedIn }) => {
+    const [userData, setUserData] = React.useState({
+        firstName: 'Deepak',
+        lastName: 'Dhakad',
+        email:'dhakadd745@gmail.com',
+        phone: '',
+        gender: '',
+        dob: '2001-08-15',
+        zipCode: '',
+        streetAddress: '',
+        city: '',
+        state: ''
+    });
 
     const linkClass = "block p-3 rounded-lg text-gray-800 transition-all duration-300 hover:bg-slate-100 focus:text-orange-600"
     const [personalInfo, setPersonalInfo] = React.useState(true);
@@ -47,8 +59,8 @@ const Profile = ({ firstName = 'Deepak', lastName = 'Dhakad', email = 'nannie_ab
                                     <AlertDialogSlide />
                                 </span>
                             </div>
-                            <h2 className="text-lg font-semibold text-gray-700 ml-2 mt-1">{firstName + ' ' + lastName}</h2>
-                            <h2 className="text-gray-500 ml-2 mb-4">{email}</h2>
+                            <h2 className="text-lg font-semibold text-gray-700 ml-2 mt-1">{userData.firstName + ' ' + userData.lastName}</h2>
+                            <h2 className="text-gray-500 ml-2 mb-4">{userData.email}</h2>
                         </div>
                         <div className="mt-2 pb-2 border-b border-slate-300 border-dashed">
                             <Link className={linkClass} onClick={handlePersonClick}>
@@ -79,7 +91,12 @@ const Profile = ({ firstName = 'Deepak', lastName = 'Dhakad', email = 'nannie_ab
                     </aside>
                     <aside className="w-[70%]">
                         {
-                            personalInfo ? <PersonalInfo /> : (wishlist ? <WishList /> : (order ? <Order /> : (voucher ? <Voucher /> : (payment ? <Payment /> : null))))
+                            personalInfo ? <PersonalInfo userData={userData} setUserData={setUserData} /> 
+                            : (wishlist ? <WishList /> 
+                            : (order ? <Order /> 
+                            : (voucher ? <Voucher /> 
+                            : (payment ? <Payment /> 
+                            : null))))
                         }
                     </aside>
                 </main>
