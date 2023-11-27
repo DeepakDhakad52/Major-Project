@@ -1,21 +1,22 @@
 import { AppBar, Box, Button, Container, Dialog, Divider, List, ListItem, ListItemButton, SwipeableDrawer } from '@mui/material'
 import React from 'react'
 import FitbitRoundedIcon from '@mui/icons-material/FitbitRounded';
+// import AddShoppingCartOutlinedIcon from '@mui/icons-material/AddShoppingCartOutlined';
 import Login from './Authentication/Login';
 import SignUp from './Authentication/SignUp'
 import './styles/navbar.css'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Avtarr from './pages/Avtarr';
 
 
 
-function Navbar({ checkUserIsAuthenticate }) {
+function Navbar({ setIsLoggedIn, isLoggedIn }) {
     const [loginOpen, setLoginOpen] = React.useState(false);
     const [registerOpen, setRegisterOpen] = React.useState(false);
-    const [isLoggedIn, setIsLoggedIn] = React.useState(false);
     const [navbarBackground, setNavbarBackground] = React.useState("transparent");
     const [navbarBlur, setNavbarBlur] = React.useState("none");
     const [state, setState] = React.useState(false);
+    const navigate = useNavigate();
 
     React.useEffect(() => {
         const handleScroll = () => {
@@ -37,6 +38,7 @@ function Navbar({ checkUserIsAuthenticate }) {
 
     const handleLogout = () => {
         setIsLoggedIn(false);
+        navigate('/');
     };
 
     const handleClickLoginOpen = () => {
@@ -125,11 +127,14 @@ function Navbar({ checkUserIsAuthenticate }) {
         </Box>
     );
 
-    const AuthButtons = ({ checkUserIsAuthenticate }) => {
-        checkUserIsAuthenticate(isLoggedIn);
+    const AuthButtons = () => {
         if (isLoggedIn) {
             return (
                 <div>
+                    <Link><i className="fa-regular fa-heart mr-5 text-lg"></i></Link>
+                    <Link><i className="fa-regular fa-bell mr-5 text-lg"></i></Link>
+                    {/* <Link><i className="fa-solid fa-cart-shopping mr-5 text-lg"></i></Link> */}
+                    {/* <AddShoppingCartOutlinedIcon sx={{marginRight: '14px'}} fontSize='medium'/> */}
                     <Avtarr handleLogout={handleLogout} />
                 </div>
             );
@@ -183,7 +188,7 @@ function Navbar({ checkUserIsAuthenticate }) {
 
                     <div className='flex'>
                         <div>
-                            <AuthButtons checkUserIsAuthenticate={checkUserIsAuthenticate} />
+                            <AuthButtons />
                             <Dialog
                                 open={loginOpen}
                                 onClose={handleClose}
