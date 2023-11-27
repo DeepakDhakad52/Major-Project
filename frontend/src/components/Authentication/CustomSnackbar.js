@@ -9,11 +9,15 @@ const Alert = React.forwardRef(function Alert(props, ref) {
 export default function CustomSnackbar() {
     const [open, setOpen] = React.useState(true);
 
+    const handleSnackbarClose = () => {
+        setTimeout(() => setOpen(false), 5000)
+    }
+
     return (
         <Snackbar
             anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
             open={open}
-            onClose={setTimeout(() => setOpen(false), 5000)}
+            onClose={handleSnackbarClose}
         >
             <Alert severity="success">
                 Login Successfull!
