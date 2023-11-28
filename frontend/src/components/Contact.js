@@ -1,4 +1,5 @@
 import './styles/contact.css'
+import axios from 'axios';
 import { Button, Container, TextField } from '@mui/material'
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import CallIcon from '@mui/icons-material/Call';
@@ -80,6 +81,23 @@ const Contact = () => {
 }
 
 export const Discount = () => {
+  const [email, setEmail] = React.useState(''); 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try{
+      const response = await axios.post("http://localhost:5000/v1/discount/email", {email});
+      console.log(response);
+      if(response.data.success) {
+        alert(response.data.result.message);
+      }
+      setEmail('');
+    } catch (err) {
+      console.log(err);
+    }
+  }
+  const handleOnChange = (event) => {
+    setEmail(event.target.value);
+  }
   return (
     <div className='w-screen p-16' style={{ background: 'rgb(254, 233, 209)' }}>
       <Container>
@@ -87,10 +105,10 @@ export const Discount = () => {
           <div className='w-1/2 p-8'>
             <h2 className='text-4xl font-semibold leading-snug text-center'>Register Now Forget 20% Discount Every Courses</h2>
             <p className='text-center mt-4'>Nam ipsum risus, rutrum vitae, vestibulum eu, molestie vel, lacus. Sed magna purus, fermentum eu</p>
-            <div className=''>
-              <input type="email" name="" id="" placeholder='Email address' className=' w-full rounded-lg text-sm mt-6 p-4 text-slate-800 outline-0' />
-              <button className='btn' style={{ marginTop: '1rem' }}>Register</button>
-            </div>
+            <form>
+              <input value={email} onChange={handleOnChange} type="email" name="email" id="email" placeholder='Email address' className=' w-full rounded-lg text-sm mt-6 p-4 text-slate-800 outline-0' />
+              <button className='btn' style={{ marginTop: '1rem' }} onClick={handleSubmit}>Register</button>
+            </form>
           </div>
           <div className='w-1/2'>
             <img src={'https://zone-ui.vercel.app/assets/illustrations/illustration_newsletter.svg'} alt="contact" width={350} className='mx-auto' />
