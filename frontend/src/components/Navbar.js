@@ -130,10 +130,10 @@ function Navbar({ setIsLoggedIn, isLoggedIn }) {
     const AuthButtons = () => {
         if (isLoggedIn) {
             return (
-                <div>
-                    <Link><i className="fa-regular fa-heart mr-5 text-lg"></i></Link>
-                    <Link><i className="fa-regular fa-bell mr-5 text-lg"></i></Link>
-                    {/* <Link><i className="fa-solid fa-cart-shopping mr-5 text-lg"></i></Link> */}
+                <div className='flex'>
+                    <Link><i className="fa-regular fa-heart mr-5  h-full w-full text-lg"></i></Link>
+                    <Link><i className="fa-regular fa-bell mr-5  h-full w-full text-lg"></i></Link>
+                    <Link><i className="fa-solid fa-cart-shopping mr-5  h-full w-full text-lg"></i></Link>
                     {/* <AddShoppingCartOutlinedIcon sx={{marginRight: '14px'}} fontSize='medium'/> */}
                     <Avtarr handleLogout={handleLogout} />
                 </div>
