@@ -21,7 +21,7 @@ export default function Avtarr({ handleLogout }) {
 
         <>
             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar src={'https://mui.com/static/images/avatar/2.jpg'} />
+                <Avatar src={'https://mui.com/static/images/avatar/2.jpg'} sx={{ width: 30, height: 30 }}/>
             </IconButton>
             <Menu
                 sx={{ mt: '45px' }}
