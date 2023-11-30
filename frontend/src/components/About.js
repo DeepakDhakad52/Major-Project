@@ -5,7 +5,6 @@ import './styles/about.css';
 import '../components/Blog/Blog.js';
 import aboutdata from './AboutPage.js';
 import { Container } from '@mui/material';
-import Courses from './courses/Courses.js';
 
 const About = () => {
   const navigate = useNavigate();
