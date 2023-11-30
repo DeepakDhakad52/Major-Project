@@ -1,12 +1,18 @@
-.blogpage { 
-    display: flex;
+.blogspage{
+    margin:17%;
+    align-items: center;
+}
+.blogspage h1{
+    font-size: 30px;
+    font-weight: 700;
     justify-content: center;
     text-align: center;
-    margin:10% 10%;
+    margin: 20px;
 }
-
-.blog{
-    display: grid;
-    grid-template-columns: auto auto auto;
-    margin:10% 10%;
+.blogs{
+    display: flex;
+    flex-direction:row;
+}
+.blogpage{
+    margin : 10px
 }

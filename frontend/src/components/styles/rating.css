@@ -1,0 +1,12 @@
+/* RatingComponent.css */
+.rating {
+    font-size: 24px; /* Adjust the font size as needed */
+  }
+  
+  .star-filled {
+    color: gold; /* Set the color for filled stars */
+  }
+  
+  .star-empty {
+    color: #ccc; /* Set the color for empty stars */
+  }

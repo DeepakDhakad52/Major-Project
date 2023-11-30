@@ -52,6 +52,11 @@
 } 
 .about_our_vision .content{
     box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     /* border: 1px solid rgb(149, 149, 149); */
     box-shadow: 5px 5px 20px #474747a5;
     width: 200px;
