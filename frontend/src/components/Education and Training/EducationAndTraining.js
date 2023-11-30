@@ -3,9 +3,12 @@ import { Button, Container } from '@mui/material'
 import teacher from '../images/home_hero.png'
 import React from 'react'
 import { WeWorkWith } from '../Home'
+import { Discount } from '../Contact'
 import FeaturedCourses from './FeaturedCourses'
 import OurTeam from '../OurTeam'
 import DownloadApp from './DownloadApp';
+import DownloadApp from './DownloadApp'
+import { Link } from 'react-router-dom'
 
 const EducationAndTraining = () => {
   return (
@@ -23,6 +26,16 @@ const EducationAndTraining = () => {
                   style={{ margin: '5% 2%', background: '#121212', padding: '10px', textTransform: 'capitalize', borderRadius: '20px' }}
                 >Get Started<i className="fa-solid fa-arrow-right px-2"></i>
                 </Button>
+
+                <Link to={'/course'}>
+                  <Button
+                    variant='contained'
+                    size="large"
+                    style={{ background: '#121212', textTransform: 'capitalize', borderRadius: '10px' }}
+                    className=''
+                  >Browse Course{' '}<i className="fa-solid fa-angle-right ml-2 text-xl" />
+                  </Button>
+                </Link>
               </div>
               <div className="heroImage w-[60%] mx-auto relative ">
                 <img src={teacher} alt="" className='w-full absolute top-0 left-0' />
@@ -37,6 +50,7 @@ const EducationAndTraining = () => {
       <FeaturedCourses />
       <FeaturedCategory />
       <OurTeam />
+      <Discount />
       <DownloadApp />
 
     </>
@@ -103,7 +117,9 @@ export const FeaturedCategory = () => {
             <div className='grid grid-cols-3 gap-6'>
               {
                 featuredCategoryData.map(data =>
-                  <div className={'border border-slate-300 rounded-[12px] p-4 w-[220px] transition duration-300 hover:text-orange-600 hover:cursor-pointer hover:bg-white hover:shadow-[0px_5px_25px_rgba(0,0,0,0.3)]'}>
+                  <div key={data.title}
+                    className={'border border-slate-300 rounded-[12px] p-4 w-[220px] transition duration-300 hover:text-orange-600 hover:cursor-pointer hover:bg-white hover:shadow-[0px_5px_25px_rgba(0,0,0,0.3)]'}
+                  >
                     <h6 className='text-xl font-semibold my-3'>{data.title}</h6>
                     <span className='text-gray-500'>{data.studentCount} students</span>
                   </div>

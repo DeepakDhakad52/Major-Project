@@ -1,28 +1,31 @@
 import { AppBar, Box, Button, Container, Dialog, Divider, List, ListItem, ListItemButton, SwipeableDrawer } from '@mui/material'
 import React from 'react'
 import FitbitRoundedIcon from '@mui/icons-material/FitbitRounded';
+// import AddShoppingCartOutlinedIcon from '@mui/icons-material/AddShoppingCartOutlined';
 import Login from './Authentication/Login';
 import SignUp from './Authentication/SignUp'
 import './styles/navbar.css'
-import { Link } from 'react-router-dom';
-import { IconButton } from '@mui/material';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import { Link, useNavigate } from 'react-router-dom';
+import Avtarr from './pages/Avtarr';
 
 
 
-function Navbar() {
+function Navbar({ setIsLoggedIn, isLoggedIn }) {
     const [loginOpen, setLoginOpen] = React.useState(false);
     const [registerOpen, setRegisterOpen] = React.useState(false);
-    const [isLoggedIn, setIsLoggedIn] = React.useState(false);
     const [navbarBackground, setNavbarBackground] = React.useState("transparent");
+    const [navbarBlur, setNavbarBlur] = React.useState("none");
     const [state, setState] = React.useState(false);
+    const navigate = useNavigate();
 
     React.useEffect(() => {
         const handleScroll = () => {
             if (window.scrollY > 1) {
                 setNavbarBackground("#ffffffcb");
+                setNavbarBlur('blur(7px)');
             } else {
                 setNavbarBackground("transparent");
+                setNavbarBlur('none')
             }
         };
 
@@ -35,6 +38,7 @@ function Navbar() {
 
     const handleLogout = () => {
         setIsLoggedIn(false);
+        navigate('/');
     };
 
     const handleClickLoginOpen = () => {
@@ -126,20 +130,12 @@ function Navbar() {
     const AuthButtons = () => {
         if (isLoggedIn) {
             return (
-                <div>
-                    <Button
-                        variant='contained'
-                        size='small'
-                        onClick={handleLogout}
-                        className='login-btn'
-                    >
-                        Logout
-                    </Button>
-                    <Link to='/profile'>
-                        <IconButton>
-                            <AccountCircleIcon />
-                        </IconButton>
-                    </Link>
+                <div className='flex'>
+                    <Link><i className="fa-regular fa-heart mr-5  h-full w-full text-lg"></i></Link>
+                    <Link><i className="fa-regular fa-bell mr-5  h-full w-full text-lg"></i></Link>
+                    <Link><i className="fa-solid fa-cart-shopping mr-5  h-full w-full text-lg"></i></Link>
+                    {/* <AddShoppingCartOutlinedIcon sx={{marginRight: '14px'}} fontSize='medium'/> */}
+                    <Avtarr handleLogout={handleLogout} />
                 </div>
             );
         } else {
@@ -171,7 +167,7 @@ function Navbar() {
         <AppBar color='transparent' position='fixed' id='appBar' style={{
             backgroundColor: navbarBackground,
             boxShadow: 'none',
-            backdropFilter: 'blur(10px)'
+            backdropFilter: navbarBlur
         }}
         >
             <Container>
@@ -225,7 +221,7 @@ function Navbar() {
 }
 
 const NavList = () => {
-    const list_classes = 'nav-item tracking-wider text-sm font-medium cursor-pointer mx-2 px-4 py-1.5 rounded-full text-gray-950';
+    const list_classes = 'nav-item tracking-wider text-sm font-medium cursor-pointer mx-2 px-4 py-1.5 rounded-full text-gray-950 transition-all duration-200 hover:bg-blue-100';
     return (
         <ul className='nav-items flex'>
             <Link to='/'><li className={list_classes} >Home</li></Link>

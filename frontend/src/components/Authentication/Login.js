@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link ,useNavigate} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import "../styles/login.css";
 import { Avatar, Box, Typography } from "@mui/material";
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
@@ -11,8 +11,6 @@ function Login({ registerOpen, setLoginOpen, setRegisterOpen, setIsLoggedIn }) {
     password: "",
   });
 
-  const navigate = useNavigate();
-
   function handleSubmit(e) {
     e.preventDefault();
     axios.post("http://localhost:5000/v1/auth/signin", formData)
@@ -20,7 +18,7 @@ function Login({ registerOpen, setLoginOpen, setRegisterOpen, setIsLoggedIn }) {
         console.log("Login success:", response.data);
         setIsLoggedIn(true);
         setLoginOpen(false);
-        navigate("/profile");
+        // navigate("/profile");
       })
       .catch(error => {
         console.error("Login failed:", error);

@@ -5,6 +5,9 @@ import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import { Dialog } from '@mui/material'
 import About from './About';
 import { Container } from '@mui/material';
+import DownloadApp from './Education and Training/DownloadApp'
+import { Discount } from './Contact'
+import OurTeam from './OurTeam';
 
 export default function Header() {
   const [videoOpen, setVideoOpen] = React.useState(false);
@@ -34,15 +37,20 @@ export default function Header() {
                 className='dialog-box'
                 maxWidth='lg'
               >
-                <iframe className='iframe md:w-[900px] md:h-[506.25px]' src="https://www.youtube.com/embed/-QwXaCI4898?si=MG6aYCNvA0CXrozb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <iframe className='iframe md:w-[900px] md:h-[506.25px]' src="https://www.youtube.com/embed/-QwXaCI4898?si=MG6aYCNvA0CXrozb" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
               </Dialog>
             </div>
           </div>
         </div>
         <img src={svg} alt="Waves" />
       </header>
+
       <WeWorkWith />
       <About />
+      <OurTeam />
+      <Discount />
+      <DownloadApp />
+
     </>
   )
 }
@@ -58,7 +66,7 @@ export const WeWorkWith = () => {
         <div className='flex my-8 flex-wrap justify-center'>
           {
             customer.map(customer =>
-              <div className={customerClass}>
+              <div className={customerClass} key={customer}>
                 {customer}
               </div>
             )
