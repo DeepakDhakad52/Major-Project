@@ -9,6 +9,7 @@ const dotenv = require("dotenv");
 //routes
 const userRoutes = require("./src/api/routes/userRoutes.js");
 const discountRoutes = require("./src/api/routes/discountRoutes.js");
+const contactRoutes = require("./src/api/routes/contactRoutes.js");
 
 
 dotenv.config();
@@ -25,6 +26,7 @@ app.get("/", (req, res) => {
 
 app.use("/v1/auth" , userRoutes);
 app.use("/v1/discount", discountRoutes);
+app.use("/v1/contact", contactRoutes)
 
 
 app.listen(process.env.PORT, () => {
