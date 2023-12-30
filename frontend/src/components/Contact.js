@@ -9,6 +9,33 @@ import React from 'react'
 import OurTeam from './OurTeam';
 
 const Contact = () => {
+
+  const [contactMessage, setContactMessage] = React.useState({ name: '', email: '', subject: '', message: '' });
+
+  const handleOnChange = (e) => {
+    setContactMessage({
+      ...contactMessage,
+      [e.target.name]: e.target.value
+    })
+  }
+
+  const handleOnSubmit = async (event) => {
+    if (contactMessage.name !== '' && contactMessage.email !== '' && contactMessage.subject !== '' && contactMessage.message !== '') {
+      event.preventDefault();
+      try {
+        const response = await axios.post("http://localhost:5000/v1/contact", contactMessage);
+        if (response.data.success) {
+          alert(response.data.result.message);
+        }
+      } catch (err) {
+        console.log(err);
+      }
+    } else {
+      alert('Please Provide all Details');
+    }
+    setContactMessage({ name: '', email: '', subject: '', message: '' });
+  }
+
   return (
     <section className='contact'>
       <div className='my-16 bg-white/[.8]'>
@@ -49,22 +76,23 @@ const Contact = () => {
               <h1 className='text-5xl font-semibold mb-4 text-center'>Drop Us A Line</h1>
               <p className='text-center'>We normally respond within 2 business days</p>
               <div className='w-full rounded-lg mt-6 '>
-                <TextField id="outlined-basic" label="Full Name" variant="outlined" fullWidth={true} />
+                <TextField required id="outlined-basic" label="Full Name" variant="outlined" fullWidth={true} onChange={handleOnChange} name='name' value={contactMessage.name} />
               </div>
               <div className='w-full rounded-lg mt-6 '>
-                <TextField id="outlined-basic" label="Email" variant="outlined" fullWidth={true} />
+                <TextField required id="outlined-basic" label="Email" variant="outlined" fullWidth={true} onChange={handleOnChange} name='email' value={contactMessage.email} />
               </div>
               <div className='w-full rounded-lg mt-6 '>
-                <TextField id="outlined-basic" label="Subject" variant="outlined" fullWidth={true} />
+                <TextField required id="outlined-basic" label="Subject" variant="outlined" fullWidth={true} onChange={handleOnChange} name='subject' value={contactMessage.subject} />
               </div>
               <div className='w-full rounded-lg mt-6'>
-                <TextField id="outlined-multiline-flexible" label="Message" multiline maxRows={4} fullWidth={true} />
+                <TextField required id="outlined-multiline-flexible" label="Message" multiline maxRows={4} fullWidth={true} onChange={handleOnChange} name='message' value={contactMessage.message} />
               </div>
               <div className='w-full'>
                 <Button
                   variant='contained'
                   size="medium"
                   style={{ margin: '5% auto', background: '#121212', padding: '10px', textTransform: 'capitalize', borderRadius: '5px' }}
+                  onClick={handleOnSubmit}
                 >Submit<i className="fa-solid fa-arrow-right px-2"></i>
                 </Button>
               </div>
@@ -72,22 +100,22 @@ const Contact = () => {
           </div>
         </Container>
       </div>
-      
+
       <Discount />
       <OurTeam />
-      
+
     </section>
   )
 }
 
 export const Discount = () => {
-  const [email, setEmail] = React.useState(''); 
+  const [email, setEmail] = React.useState('');
   const handleSubmit = async (event) => {
     event.preventDefault();
-    try{
-      const response = await axios.post("http://localhost:5000/v1/discount/email", {email});
+    try {
+      const response = await axios.post("http://localhost:5000/v1/discount/email", { email });
       console.log(response);
-      if(response.data.success) {
+      if (response.data.success) {
         alert(response.data.result.message);
       }
       setEmail('');
