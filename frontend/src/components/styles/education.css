@@ -7,7 +7,7 @@ section.education, div.forgotPassword{
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top;
-    min-height: 100vh;
+    /* min-height: 100vh; */
 }
 
 @media screen and (max-width:912px){
@@ -29,26 +29,6 @@ section.education, div.forgotPassword{
         font-size: 3em;
     }
 }
-
-.marquee-container {
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-    border: 1px solid red;
-    margin-bottom: 5rem;
-  }
-  
-  .marquee {
-    display: flex;
-    animation: marquee-scroll linear infinite alternate;
-    animation-delay: 0s;
-  }
-  
-  .customer {
-    display: flex;
-    align-items: center;
-    padding: 0 16px;
-  }
   
   @keyframes marquee-scroll {
     0% {

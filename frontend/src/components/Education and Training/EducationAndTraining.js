@@ -12,12 +12,12 @@ import { Link } from 'react-router-dom'
 const EducationAndTraining = () => {
   return (
     <>
-      <section className='education relative overflow-x-hidden'>
-        <div className='w-screen h-screen bg-white/[.93] absolute top-0 overflow-hidden'>
+      <section className='education'>
+        <div className='bg-white/[.95] pb-32'>
           <Container>
-            <div className="container flex flex-row py-44 mx-[10%] max-w-6xl">
-              <div className="content w-[35%] p-2">
-                <h2 className='font-bold  text-6xl text-slate-800 leading-snug'>Free <span className=' text-slate-400'>Online</span> <span className='text-orange-500 underline underline-offset-2'>Courses</span> From The Expert</h2>
+            <div className="container flex my-20 mx-24"> 
+              <div className="w-[35%] p-2">
+                <h2 className='font-bold text-6xl text-slate-800 leading-snug'>Free <span className=' text-slate-400'>Online</span> <span className='text-orange-500 underline underline-offset-2'>Courses</span> From The Expert</h2>
                 <p className='my-6 font-md text-slate-800 px-2 '>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est explicabo sed, tenetur tempore debitis at odio minima obcaecati </p>
 
                 <Link to={'/course'}>

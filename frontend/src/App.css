@@ -29,10 +29,6 @@ html::-webkit-scrollbar-thumb {
     border-radius: 20px;
 }
 
-section{
-    padding-top: 5rem;
-}
-
 .login-btn{
     text-transform: capitalize !important;
     margin-right: .5rem !important;

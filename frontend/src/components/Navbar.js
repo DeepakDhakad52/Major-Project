@@ -164,7 +164,7 @@ function Navbar({ setIsLoggedIn, isLoggedIn }) {
     };
 
     return (
-        <AppBar color='transparent' position='fixed' id='appBar' style={{
+        <AppBar color='transparent' position='sticky' id='appBar' style={{
             backgroundColor: navbarBackground,
             boxShadow: 'none',
             backdropFilter: navbarBlur

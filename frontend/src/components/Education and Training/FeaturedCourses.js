@@ -9,12 +9,15 @@ export const courseData = [
         alt: 'girl',
         theme: 'Fitness',
         price: '$269.99',
-        title: 'Mega Digital Marketing Course A-Z: 12 Courses in 1 + Updates',
+        title: 'Mega Digital Marketing ',//Course A-Z: 12 Courses in 1 + Updates
         rating: '2.3',
         review: '13k review',
         studentCount: '180k',
         courseTime: '100 hours',
-        level: 'Expert'
+        level: 'Expert',
+        description: 'Occaecati est et illo quibusdam accusamus qui. Incidunt aut et molestiae ut facere aut. Est quidem iusto praesentium excepturi harum nihil tenetur facilis. Ut omnis voluptates nihil accusantium doloribus eaque debitis.',
+        language: ['English, Hindi'],
+        lessons: 9
     },
     {
         id: 2,

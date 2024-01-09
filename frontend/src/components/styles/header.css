@@ -1,13 +1,13 @@
 .header{
     background: linear-gradient(to bottom right, #00000000, #000000ab), url('../images/2.jpeg') fixed center no-repeat; 
     background-size: cover;
-    min-height: 100vh;
+    min-height: 90vh;
     color: #fff;
 }
 
 .header img{
     position: absolute;
-    bottom: -15px;
+    bottom: 0;
 }
 
 .header .container{
