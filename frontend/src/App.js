@@ -12,19 +12,35 @@ import ForgotPassword from './components/Authentication/ForgotPassword';
 import Footer from './components/Footer';
 import CourseDetails from './components/Education and Training/CourseDetails';
 import Course from './components/Education and Training/Course';
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import NotAuthenticate from './components/Authentication/NotAuthenticate';
-import CustomSnackbar from './components/Authentication/CustomSnackbar';
 import Profile from './components/Education and Training/Profile/Profile';
+import axios from 'axios';
+import { AuthContext } from '.';
 
 function App() {
+  const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
 
-  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
+
+  useEffect(() => {
+      try {
+        axios.post('http://localhost:5000/v1/auth/signin', {}, {
+          withCredentials: true
+        })
+          .then(response => {
+            if (response.data.success) {
+              setIsLoggedIn(true);
+            }
+          })
+          .catch(err => console.log(err))
+      } catch (error) {
+        console.log(error);
+      }
+  }, [setIsLoggedIn])
 
   return (
     <Router>
-      {isLoggedIn ? <CustomSnackbar /> : null}
-      <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+      <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/education' element={<EducationAndTraining />} />

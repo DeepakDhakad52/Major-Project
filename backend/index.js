@@ -10,15 +10,20 @@ const dotenv = require("dotenv");
 const userRoutes = require("./src/api/routes/userRoutes.js");
 const discountRoutes = require("./src/api/routes/discountRoutes.js");
 const contactRoutes = require("./src/api/routes/contactRoutes.js");
+const cookieParser = require("cookie-parser");
 
 
 dotenv.config();
 dbConnect();
 
 
-app.use(cors());
+app.use(cors({
+  origin: 'http://localhost:3000',
+  credentials: true
+}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cookieParser())
 
 app.get("/", (req, res) => {
   res.send("working fine");

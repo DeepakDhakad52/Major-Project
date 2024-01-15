@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from 'react-router-dom'
 import "../styles/login.css";
 import { Avatar, Box, Typography } from "@mui/material";
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import axios from 'axios';
+import { AuthContext } from "../..";
 
-function Login({ registerOpen, setLoginOpen, setRegisterOpen, setIsLoggedIn }) {
+function Login({ registerOpen, setLoginOpen, setRegisterOpen }) {
+  const { setIsLoggedIn } = useContext(AuthContext)
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -13,25 +15,28 @@ function Login({ registerOpen, setLoginOpen, setRegisterOpen, setIsLoggedIn }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    axios.post("http://localhost:5000/v1/auth/signin", formData)
-      .then(response => {
-        console.log("Login success:", response.data);
-        setIsLoggedIn(true);
-        setLoginOpen(false);
-        // navigate("/profile");
+    e.stopPropagation();
+    try {
+      axios.post("http://localhost:5000/v1/auth/signin", formData, {
+        withCredentials: true
       })
-      .catch(error => {
-        console.error("Login failed:", error);
-      });
-    // console.log("Form Data:", formData);
+        .then(response => {
+          console.log("Login success:", response.data);
+          setIsLoggedIn(true);
+          setLoginOpen(false);
+        })
+        .catch(error => {
+          console.error("Login failed:", error);
+        });
+    } catch (error) {
+      console.log(error);
+    }
 
-    setFormData({
-      email: "",
-      password: "",
-    });
+    setFormData({ email: "", password: "", });
   }
 
   function handleOnChange(e) {
+    e.stopPropagation();
     const { name, value } = e.target;
     setFormData((prevData) => ({
       ...prevData,
@@ -98,7 +103,7 @@ function Login({ registerOpen, setLoginOpen, setRegisterOpen, setIsLoggedIn }) {
                 <input type="checkbox" name="checkbox" id="checkbox" />
                 Remember Me
               </label>
-              <Link to="/forgetpassword" onClick={()=>setLoginOpen(false)}>Forgot Password?</Link>
+              <Link to="/forgetpassword" onClick={() => setLoginOpen(false)}>Forgot Password?</Link>
             </div>
             <button className="btn" type="submit">
               Login

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Container } from "@mui/material"
 import Dialog from '@mui/material/Dialog';
 import Slide from '@mui/material/Slide';
@@ -10,9 +10,11 @@ import Order from "./Order";
 import WishList from "./WishList";
 import PersonalInfo from "./PersonalInfo";
 import Voucher from "./Voucher";
+import { AuthContext } from "../../..";
 
 
-const Profile = ({ setIsLoggedIn }) => {
+const Profile = () => {
+    const { setIsLoggedIn } = useContext(AuthContext);
     const [userData, setUserData] = React.useState({
         firstName: 'Deepak',
         lastName: 'Dhakad',

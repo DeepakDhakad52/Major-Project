@@ -1,5 +1,5 @@
 import { AppBar, Box, Button, Container, Dialog, Divider, List, ListItem, ListItemButton, SwipeableDrawer } from '@mui/material'
-import React from 'react'
+import React, { useContext } from 'react'
 import FitbitRoundedIcon from '@mui/icons-material/FitbitRounded';
 // import AddShoppingCartOutlinedIcon from '@mui/icons-material/AddShoppingCartOutlined';
 import Login from './Authentication/Login';
@@ -7,10 +7,12 @@ import SignUp from './Authentication/SignUp'
 import './styles/navbar.css'
 import { Link, useNavigate } from 'react-router-dom';
 import Avtarr from './pages/Avtarr';
+import { AuthContext } from '..';
 
 
 
-function Navbar({ setIsLoggedIn, isLoggedIn }) {
+function Navbar() {
+    const { setIsLoggedIn, isLoggedIn } = useContext(AuthContext);
     const [loginOpen, setLoginOpen] = React.useState(false);
     const [registerOpen, setRegisterOpen] = React.useState(false);
     const [navbarBackground, setNavbarBackground] = React.useState("transparent");
@@ -41,22 +43,13 @@ function Navbar({ setIsLoggedIn, isLoggedIn }) {
         navigate('/');
     };
 
-    const handleClickLoginOpen = () => {
-        setLoginOpen(true);
-    };
-
-    const handleClickRegisterOpen = () => {
-        setRegisterOpen(true);
-    }
+    const handleClickLoginOpen = () => setLoginOpen(true);
+    const handleClickRegisterOpen = () => setRegisterOpen(true);
+    const toggleDrawer = open => event => setState(open);
 
     const handleClose = () => {
         setLoginOpen(false);
         setRegisterOpen(false);
-    };
-
-    const toggleDrawer = (open) => (event) => {
-        // if (event && event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) return; 
-        setState(open);
     };
 
 
@@ -134,7 +127,6 @@ function Navbar({ setIsLoggedIn, isLoggedIn }) {
                     <Link><i className="fa-regular fa-heart mr-5  h-full w-full text-lg"></i></Link>
                     <Link><i className="fa-regular fa-bell mr-5  h-full w-full text-lg"></i></Link>
                     <Link><i className="fa-solid fa-cart-shopping mr-5  h-full w-full text-lg"></i></Link>
-                    {/* <AddShoppingCartOutlinedIcon sx={{marginRight: '14px'}} fontSize='medium'/> */}
                     <Avtarr handleLogout={handleLogout} />
                 </div>
             );

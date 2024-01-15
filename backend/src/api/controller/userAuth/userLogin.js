@@ -28,7 +28,10 @@ const userLogin = async (req, res) => {
                 const validPassword = await bcrypt.compare(password, user.password);
                 if (validPassword) {
                     const token = jwt.sign({ email, id: user._id }, process.env.SECRETKEY);
-                    res.status(200).json({ 
+                    res.status(200).cookie('token', token, {
+                        httpOnly: true,
+                        expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 3)
+                    }).json({ 
                         success: true, 
                         user: user, 
                         token, 
