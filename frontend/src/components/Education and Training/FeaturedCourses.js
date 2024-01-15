@@ -94,10 +94,10 @@ export const CardConponent = ({ id, img, alt, theme, price, title, rating, revie
                         component="img"
                         // height="150"
                         image={img}
-                        sx={ direction==='flex-row' ? {width: '30%'} : null}
+                        sx={ direction==='flex-row' && {width: '30%'}}
                         alt={alt}
                     />
-                    <CardContent>
+                    <CardContent sx={ direction==='flex-row' && {width: '100%'}}>
                         <div className="flex justify-between ">
                             <span className="block text-orange-600 font-semibold">{theme}</span>
                             <span className="block font-semibold text-xl">{price}</span>
