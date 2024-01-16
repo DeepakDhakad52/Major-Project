@@ -15,7 +15,7 @@ const userLogin = async (req, res) => {
             });
         }
         else {
-            const user = await userModel.findOne({ email });
+            const user = await userModel.findOne({ email }).select('+password');
             if (!user) {
                 res.status(404).json({
                     success: false,
@@ -32,10 +32,9 @@ const userLogin = async (req, res) => {
                         httpOnly: true,
                         expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 3)
                     }).json({ 
-                        success: true, 
-                        user: user, 
-                        token, 
-                        message: "Login Successfull" 
+                        success: true,
+                        token,
+                        message: "Login Successfull"
                     });
                 }
                 else {

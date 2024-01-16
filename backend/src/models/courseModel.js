@@ -5,7 +5,7 @@ const courseSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    category:{
+    category: {
         type: String,
         required: true
     },
@@ -14,7 +14,7 @@ const courseSchema = new mongoose.Schema({
         required: true,
         min: 0
     },
-    title:{
+    title: {
         type: String,
         required: true
     },
@@ -23,10 +23,9 @@ const courseSchema = new mongoose.Schema({
         default: 0,
         min: 0
     },
-    review: {
-        type: Number,
-        default: 0,
-        min: 0
+    reviews: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Review'
     },
     studentCount: {
         type: Number,
@@ -40,9 +39,9 @@ const courseSchema = new mongoose.Schema({
     level: {
         type: String,
         required: true,
-        enum: ['Beginner', 'Intermediate', 'Advanced']
+        enum: ['Beginner', 'Intermediate', 'Advance']
     },
-    description:{
+    description: {
         type: String,
         required: true
     },
@@ -59,7 +58,7 @@ const courseSchema = new mongoose.Schema({
     video: {
         type: [String]
     },
-    skills:{
+    skills: {
         type: [String],
         required: true
     },
@@ -70,4 +69,4 @@ const courseSchema = new mongoose.Schema({
     },
 })
 
-export default mongoose.model("course", courseSchema);
+export default mongoose.model("Course", courseSchema);
