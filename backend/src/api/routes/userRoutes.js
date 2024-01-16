@@ -1,10 +1,10 @@
 import express from 'express'
 const router = express.Router()
 
-const userLogin = require("../controller/userAuth/userLogin.js");
-const userRegister = require("../controller/userAuth/userRegister.js");
-const getUserDetails = require("../controller/userAuth/getUserDetails.js")
-const { isLoggedIn } = require("../../../middleware/AuthMiddleware.js")
+import userLogin from "../controller/userAuth/userLogin.js";
+import userRegister  from "../controller/userAuth/userRegister.js";
+import getUserDetails  from "../controller/userAuth/getUserDetails.js"
+import { isLoggedIn } from "../../../middleware/AuthMiddleware.js"
 
 
 router.route("/").get((req, res) => {

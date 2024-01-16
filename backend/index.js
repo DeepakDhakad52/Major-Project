@@ -4,12 +4,13 @@ import cors from "cors";
 import bodyParser from 'body-parser';
 import dbConnect from "./database/dbConnect.js";
 import dotenv from "dotenv";
+import cookieParser from "cookie-parser";
 
 //routes
 import userRoutes from "./src/api/routes/userRoutes.js";
 import discountRoutes from "./src/api/routes/discountRoutes.js";
 import contactRoutes from "./src/api/routes/contactRoutes.js";
-import cookieParser from "cookie-parser";
+import courseRoutes from "./src/api/routes/courseRoutes.js";
 
 
 dotenv.config();
@@ -31,6 +32,7 @@ app.get("/", (req, res) => {
 app.use("/v1/auth" , userRoutes);
 app.use("/v1/discount", discountRoutes);
 app.use("/v1/contact", contactRoutes)
+app.use("/v1/course", courseRoutes)
 
 
 app.listen(process.env.PORT, () => {
