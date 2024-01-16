@@ -68,7 +68,7 @@ const Chapters = () => {
                         <div className='my-10'>
                             {
                                 arr.map(i =>
-                                    <Accordion square sx={{ marginTop: '10px', boxShadow: '0px 05px 20px #00000024', borderRadius: '25px' }} >
+                                    <Accordion square sx={{ marginTop: '10px', boxShadow: 'none' }} key={i}>
                                         <AccordionSummary
                                             expandIcon={<ExpandMoreIcon fontSize='medium' style={{ color: '#00000088' }} />}
                                             aria-controls="panel1-content"
@@ -80,8 +80,9 @@ const Chapters = () => {
                                             </div>
                                         </AccordionSummary>
                                         <AccordionDetails>
-                                            <div>
-
+                                            <div className=''>
+                                                <Link to={'/video'} className='bg-slate-200 p-2 block rounded-lg font-semibold text-center'>Video</Link>
+                                                <Link to={'/video'} className='bg-slate-200 my-2 p-2 block rounded-lg font-semibold text-center'>Video</Link>
                                             </div>
                                         </AccordionDetails>
                                     </Accordion>
@@ -127,8 +128,8 @@ const WhatWillYouLearn = () => {
                 <ul className='my-6'>
                     {
                         topics.map(topic =>
-                            <li className={'text-lg text-gray-800 font-medium tracking-wide my-2'}>
-                                <i class="fa-solid fa-check text-red-400 mr-2 shadow-lg bg-slate-50 p-1 rounded-full"></i>
+                            <li className={'text-lg text-gray-800 font-medium tracking-wide my-2'} key={topic}>
+                                <i className="fa-solid fa-check text-red-400 mr-2 shadow-lg bg-slate-50 p-1 rounded-full"></i>
                                 {topic}
                             </li>
                         )
@@ -140,7 +141,7 @@ const WhatWillYouLearn = () => {
                 <ul className='my-6 flex '>
                     {
                         skillsGain.map(skill =>
-                            <li className={'mx-2 bg-slate-100 px-2 py-1 rounded-full'}>
+                            <li className={'mx-2 bg-slate-100 px-2 py-1 rounded-full'} key={skill}>
                                 {skill}
                             </li>
                         )

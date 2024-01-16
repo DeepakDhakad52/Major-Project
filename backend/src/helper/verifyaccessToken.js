@@ -1,4 +1,5 @@
-const jwt = require("jsonwebtoken");
+import jwt from "jsonwebtoken";
+
 const verifyaccessToken = (req, res, next) => {
     const token = req.headers.authorization;
     if (token) {
@@ -15,4 +16,4 @@ const verifyaccessToken = (req, res, next) => {
         res.status(401).json({ sucess: "fail", result: { message: "Token  is not set" } })
     }
 }
-module.exports = verifyaccessToken;
+export default verifyaccessToken;

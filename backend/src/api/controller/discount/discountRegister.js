@@ -1,4 +1,4 @@
-const discountModel = require('../../../models/discountModel.js');
+import discountModel from '../../../models/discountModel.js';
 
 const discountRegister = async (req, res) => {
     try {
@@ -53,4 +53,4 @@ const discountRegister = async (req, res) => {
     }
 }
 
-module.exports = discountRegister;
+export default discountRegister;

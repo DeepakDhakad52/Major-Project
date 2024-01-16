@@ -1,16 +1,15 @@
-const express = require("express");
+import express from 'express'
 const app = express();
-const cors = require("cors");
-const bodyParser = require("body-parser");
-
-const dbConnect = require("./database/dbConnect.js");
-const dotenv = require("dotenv");
+import cors from "cors";
+import bodyParser from 'body-parser';
+import dbConnect from "./database/dbConnect.js";
+import dotenv from "dotenv";
 
 //routes
-const userRoutes = require("./src/api/routes/userRoutes.js");
-const discountRoutes = require("./src/api/routes/discountRoutes.js");
-const contactRoutes = require("./src/api/routes/contactRoutes.js");
-const cookieParser = require("cookie-parser");
+import userRoutes from "./src/api/routes/userRoutes.js";
+import discountRoutes from "./src/api/routes/discountRoutes.js";
+import contactRoutes from "./src/api/routes/contactRoutes.js";
+import cookieParser from "cookie-parser";
 
 
 dotenv.config();

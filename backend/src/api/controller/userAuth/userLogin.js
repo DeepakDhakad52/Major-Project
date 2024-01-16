@@ -1,6 +1,6 @@
-const userModel = require("../../../models/userModel.js");
-const bcrypt = require("bcrypt");
-const jwt = require('jsonwebtoken');
+import userModel from "../../../models/userModel.js";
+import bcrypt from "bcrypt";
+import jwt from 'jsonwebtoken';
 
 
 const userLogin = async (req, res) => {
@@ -53,4 +53,4 @@ const userLogin = async (req, res) => {
         return res.status(500).json({ success: "fail", result: { message: "Try after some time." } });
     }
 }
-module.exports = userLogin;
+export default userLogin;

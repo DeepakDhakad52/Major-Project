@@ -1,6 +1,5 @@
 
-const userModel = require("../../../models/userModel.js");
-
+import userModel from "../../../models/userModel.js";
 
 const getUserDetails = async (req, res) => {
     let users;
@@ -16,4 +15,5 @@ const getUserDetails = async (req, res) => {
     }
     return res.status(200).json({ status : "true" , content: {data:users},})
 };
-module.exports = getUserDetails;
+
+export default getUserDetails;

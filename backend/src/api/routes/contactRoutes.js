@@ -1,10 +1,11 @@
-const routes = require('express').Router();
-const contactMessages = require('../controller/contact/contactMessages');
+import express from 'express'
+const router = express.Router()
+import contactMessages from '../controller/contact/contactMessages';
 
-routes.route('/').get((req, res)=>{
+router.route('/').get((req, res)=>{
     res.send('Working');
 });
 
-routes.route('/').post(contactMessages);
+router.route('/').post(contactMessages);
 
-module.exports = routes;
+export default router;

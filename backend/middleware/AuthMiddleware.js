@@ -1,4 +1,4 @@
-exports.isAuth = (req, res, next) => {
+export const isAuth = (req, res, next) => {
     if(req.cookies.token){
         next();
     } else {
@@ -9,7 +9,7 @@ exports.isAuth = (req, res, next) => {
     }
 }
 
-exports.isLoggedIn = (req, res, next) => {
+export const isLoggedIn = (req, res, next) => {
     const {token} = req.cookies;
     if(!token){
         next();

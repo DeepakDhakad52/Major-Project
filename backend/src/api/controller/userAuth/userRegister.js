@@ -1,11 +1,11 @@
-const userModel = require("../../../models/userModel.js");
-const bcrypt = require("bcrypt");
-const jwt = require('jsonwebtoken')
+import userModel from "../../../models/userModel.js";
+import bcrypt from "bcrypt";
+import jwt from 'jsonwebtoken';
 
 const userRegister = async (req, res) => {
     try {
         const { firstname, lastname, email, password, agreeToTerms } = req.body;
-        if (firstname === undefined || lastname === undefined || email === undefined || password === undefined) {
+        if (!firstname || !lastname || !email || !password) {
             res.status(400).json({ success: false, result: { message: "All are required." } })
         }
 
@@ -43,4 +43,4 @@ const userRegister = async (req, res) => {
     }
 }
 
-module.exports = userRegister;
+export default userRegister;

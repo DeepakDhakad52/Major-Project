@@ -1,4 +1,4 @@
-const contactModel = require('../../../models/contactModel');
+import contactModel from '../../../models/contactModel';
 
 const contactMessages = async (req, res) => {
     const { name, email, subject, message } = req.body;
@@ -21,4 +21,4 @@ const contactMessages = async (req, res) => {
     }
 }
 
-module.exports = contactMessages;
+export default contactMessages;

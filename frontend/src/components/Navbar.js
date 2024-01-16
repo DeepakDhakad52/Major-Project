@@ -15,28 +15,26 @@ function Navbar() {
     const { setIsLoggedIn, isLoggedIn } = useContext(AuthContext);
     const [loginOpen, setLoginOpen] = React.useState(false);
     const [registerOpen, setRegisterOpen] = React.useState(false);
-    const [navbarBackground, setNavbarBackground] = React.useState("transparent");
-    const [navbarBlur, setNavbarBlur] = React.useState("none");
     const [state, setState] = React.useState(false);
     const navigate = useNavigate();
 
-    React.useEffect(() => {
-        const handleScroll = () => {
-            if (window.scrollY > 1) {
-                setNavbarBackground("#ffffffcb");
-                setNavbarBlur('blur(7px)');
-            } else {
-                setNavbarBackground("transparent");
-                setNavbarBlur('none')
-            }
-        };
+    // React.useEffect(() => {
+    //     const handleScroll = () => {
+    //         if (window.scrollY > 1) {
+    //             setNavbarBackground("#ffffffcb");
+    //             setNavbarBlur('blur(7px)');
+    //         } else {
+    //             setNavbarBackground("transparent");
+    //             setNavbarBlur('none')
+    //         }
+    //     };
 
-        window.addEventListener("scroll", handleScroll);
+    //     window.addEventListener("scroll", handleScroll);
 
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        };
-    }, []);
+    //     return () => {
+    //         window.removeEventListener("scroll", handleScroll);
+    //     };
+    // }, []);
 
     const handleLogout = () => {
         setIsLoggedIn(false);
@@ -45,13 +43,12 @@ function Navbar() {
 
     const handleClickLoginOpen = () => setLoginOpen(true);
     const handleClickRegisterOpen = () => setRegisterOpen(true);
-    const toggleDrawer = open => event => setState(open);
+    const toggleDrawer = open => e => setState(open);
 
     const handleClose = () => {
         setLoginOpen(false);
         setRegisterOpen(false);
     };
-
 
     const list = () => (
         <Box
@@ -156,10 +153,10 @@ function Navbar() {
     };
 
     return (
-        <AppBar color='transparent' position='sticky' id='appBar' style={{
-            backgroundColor: navbarBackground,
+        <AppBar color='transparent' position='sticky' id='appBar' className='shadow-none' style={{
+            backgroundColor: "#ffffffcb",
             boxShadow: 'none',
-            backdropFilter: navbarBlur
+            backdropFilter: 'blur(7px)'
         }}
         >
             <Container>
@@ -214,15 +211,21 @@ function Navbar() {
 
 const NavList = () => {
     const list_classes = 'nav-item tracking-wider text-sm font-medium cursor-pointer mx-2 px-4 py-1.5 rounded-full text-gray-950 transition-all duration-200 hover:bg-blue-100';
+
+    const handleScroll = (e) => {
+        e.stopPropagation();
+        window.scrollTo(0, 'smooth');
+    }
+
     return (
         <ul className='nav-items flex'>
-            <Link to='/'><li className={list_classes} >Home</li></Link>
-            <Link to='/education'><li className={list_classes} >Education & Training</li></Link>
-            <Link to='/fund'><li className={list_classes} >Fund Raiser</li></Link>
-            <Link to='/blog'><li className={list_classes} >Blog</li></Link>
-            <Link to='/about'><li className={list_classes}>About</li></Link>
-            <Link to='/team'><li className={list_classes} >Our Team</li></Link>
-            <Link to='/contact'><li className={list_classes}>Contact Us</li></Link>
+            <Link onClick={handleScroll} to='/'><li className={list_classes} >Home</li></Link>
+            <Link onClick={handleScroll} to='/education'><li className={list_classes} >Education & Training</li></Link>
+            <Link onClick={handleScroll} to='/fund'><li className={list_classes} >Fund Raiser</li></Link>
+            <Link onClick={handleScroll} to='/blog'><li className={list_classes} >Blog</li></Link>
+            <Link onClick={handleScroll} to='/about'><li className={list_classes}>About</li></Link>
+            <Link onClick={handleScroll} to='/team'><li className={list_classes} >Our Team</li></Link>
+            <Link onClick={handleScroll} to='/contact'><li className={list_classes}>Contact Us</li></Link>
         </ul>
     )
 }

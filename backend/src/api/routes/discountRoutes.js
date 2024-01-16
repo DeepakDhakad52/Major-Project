@@ -1,11 +1,12 @@
-const routes = require("express").Router();
+import express from 'express'
+const router = express.Router()
 
 const discountRegister = require("../controller/discount/discountRegister.js")
 
-routes.route("/").get((req,res) => {
+router.route("/").get((req,res) => {
     res.send("discount routes working");
 });
 
-routes.route("/email").post(discountRegister);
+router.route("/email").post(discountRegister);
 
-module.exports = routes;
+export default router;
